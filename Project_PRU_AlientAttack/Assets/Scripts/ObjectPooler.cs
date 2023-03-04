@@ -7,8 +7,8 @@ public class ObjectPooler : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private int poolSize = 10;
-    private List<GameObject> _pool;
-    private GameObject _poolContainer;
+    private List<GameObject> pool;
+    private GameObject poolContainer;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new List<GameObject>();
-        _poolContainer = new GameObject($"Pool - {prefab.name}");
+        pool = new List<GameObject>();
+        poolContainer = new GameObject($"Pool - {prefab.name}");
         CreatePooler();
     }
 
@@ -33,25 +33,25 @@ public class ObjectPooler : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            _pool.Add(CreateInstance());
+            pool.Add(CreateInstance());
         }
     }
 
     private GameObject CreateInstance()
     {
         GameObject newInstance = Instantiate(prefab);
-        newInstance.transform. SetParent(_poolContainer.transform);
+        newInstance.transform. SetParent(poolContainer.transform);
         newInstance.SetActive(false);
         return newInstance;
     }
 
     public GameObject GetInstanceFromPool()
     {
-        for (int i = 0; i < _pool.Count; i++)
+        for (int i = 0; i < pool.Count; i++)
         {
-            if (!_pool[i].activeInHierarchy)
+            if (!pool[i].activeInHierarchy)
             {
-                return _pool[i];
+                return pool[i];
             }
         }
         return CreateInstance();

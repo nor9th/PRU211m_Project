@@ -14,27 +14,27 @@ public class Spawner : MonoBehaviour
     [Header("Fixed Delay")]
     [SerializeField] private float delayBtwSpawns;
 
-    private float _spawnTimer;
-    private int _enemiesSpawned;
+    private float spawnTimer;
+    private int enemiesSpawned;
 
-    private ObjectPooler _pooler;
+    private ObjectPooler pooler;
 
     // Start is called before the first frame update
     void Start()
     {
-        _pooler = GetComponent <ObjectPooler>();
+        pooler = GetComponent <ObjectPooler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _spawnTimer = Time.deltaTime;
-        if (_spawnTimer < 0)
+        spawnTimer = Time.deltaTime;
+        if (spawnTimer < 0)
         {
-            _spawnTimer = delayBtwSpawns;
-            if (_enemiesSpawned < enemyCount)
+            spawnTimer = delayBtwSpawns;
+            if (enemiesSpawned < enemyCount)
             {
-                _enemiesSpawned++;
+                enemiesSpawned++;
                 SpawnEnemy();
             }
         }
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject newInstance = _pooler.GetInstanceFromPool();
+        GameObject newInstance = pooler.GetInstanceFromPool();
         newInstance.SetActive(true);
     }
 }
