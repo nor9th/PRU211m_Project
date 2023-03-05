@@ -9,6 +9,7 @@ public class HealthBoss : MonoBehaviour
 {
     public static Action<BossEnemy> OnEnemyKilled;
     public static Action<BossEnemy> OnEnemyHit;
+
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Transform barPosition;
     [SerializeField] private float initialHealth = 10f;
@@ -50,11 +51,21 @@ public class HealthBoss : MonoBehaviour
         if(CurrentHealth < 0)
         {
             CurrentHealth = 0;
-            //Die();
+            Die();
         }
         else
         {
             OnEnemyHit?.Invoke(enemy);
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    internal void ResetHealth()
+    {
+        CurrentHealth = 0;
     }
 }

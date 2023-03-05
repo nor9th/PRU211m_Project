@@ -30,8 +30,9 @@ public class EditWalkPoint : Editor
             EditorGUI.BeginChangeCheck();
 
             Vector3 currentWalkpointPoint = Walkpoint.CurrentPosition + Walkpoint.Point[i];
-            Vector3 newWalkpointPoint = Handles.FreeMoveHandle(currentWalkpointPoint, Quaternion.identity, 0.7f,
-                new Vector3(0.3f, 0.3f, 0.3f), Handles.SphereHandleCap);
+            Vector3 newWalkpointPoint = Handles.FreeMoveHandle(currentWalkpointPoint, 
+                Quaternion.identity, 0.7f, new Vector3(0.3f, 0.3f, 0.3f), 
+                Handles.SphereHandleCap);
 
             GUIStyle textStyle = new GUIStyle();
             textStyle.fontStyle = FontStyle.Bold;

@@ -214,10 +214,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10853047492759071, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 3202661821681685367, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5325792640489286699, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
       propertyPath: m_RootOrder
       value: 1
