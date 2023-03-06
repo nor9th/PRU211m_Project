@@ -31,7 +31,7 @@ public class BossEnemy : MonoBehaviour
     void Update()
     {
         Move();
-        Rotate();
+        //Rotate();
         if (CurrentPointPositionReached())
         {
             UpdateCurrentPointIndex();
@@ -47,7 +47,7 @@ public class BossEnemy : MonoBehaviour
         }
         else
         {
-            EndPointReached();
+            //EndPointReached();
         }
     }
 
