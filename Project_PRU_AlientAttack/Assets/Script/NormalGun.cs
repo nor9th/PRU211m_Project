@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class NormalGun : MonoBehaviour
 {
@@ -11,11 +13,15 @@ public class NormalGun : MonoBehaviour
     private int Level;
     private int Reload;
 
-    private GameObject bullet; 
-    void Start()
+    public GameObject bullet;
+    public GameObject Normal_gun; 
+    public UnityEngine.Transform Spot;
+	public float counter = 0;
+
+	void Start()
     {
         Atk = 5;
-        Range = 100;
+        Range = 10;
         Reload = 2;
         Gold = 30; 
         Level= 1;   
@@ -24,17 +30,31 @@ public class NormalGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Check();
-    }
-    public void Check()
-    {
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        Collider2D[] enemys = Physics2D.OverlapCircleAll(pos,Range);
-        for(int i = 0; i< enemys.Length; i++)
-        {
-            if (enemys[i].tag =="enemy") {
-                GameObject obj = Instantiate<GameObject>(bullet, transform.position, transform.rotation);
+		counter = counter + Time.deltaTime;
+		Rotate();
+	}
+	private void Rotate()
+	{
+		Collider2D[] hit = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), Range);
+		if (hit[0].tag == "Enemy" && hit.Length>=1)
+		{
+                Vector2 lookDir = hit[0].transform.position - transform.position;
+                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+			if ((int)counter % Reload == 0 && counter > Reload)
+			{
+				GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
+                obj.GetComponent<NormalBullet>().gun(Atk, hit[0].gameObject);
+                counter = 0;
             }
-        }
-    }
+		}
+
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.white;
+        Gizmos.DrawSphere(transform.position,Range); 
+	}
 }
+
