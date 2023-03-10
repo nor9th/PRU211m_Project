@@ -12,4 +12,9 @@ public class UIManager : MonoBehaviour
     {
         UI= this;
     }
+
+    public void CloseTurretShopPanel()
+    {
+        TurretShop.SetActive(false);
+    }
 }
