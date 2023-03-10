@@ -2,33 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.TestTools;
 
-public class EnemyController : MonoBehaviour
+public class LizardEnemy : MonoBehaviour
 {
-    public float startSpeed = 10f;
+    public float startSpeed = 20f;
 
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100;
-    private float health;
-
-    public int worth = 50;
-
     public GameObject deathEffect;
 
-    [Header("Unity Stuff")]
+    public float startHealth = 15;
+    private float health;
+    private float worth = 15;
     public Image healthBar;
 
     private bool isDead = false;
 
+    // Start is called before the first frame update
     void Start()
     {
-        speed = startSpeed;
-        health = startHealth;
+        health = 10;
+        speed = 10;
     }
 
+    // Update is called once per frame
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -39,11 +37,6 @@ public class EnemyController : MonoBehaviour
         {
             Die();
         }
-    }
-
-    public void Slow(float pct)
-    {
-        speed = startSpeed * (1f - pct);
     }
 
     void Die()
