@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LizardEnemy : MonoBehaviour
+public class RobotEnemy : MonoBehaviour
 {
-    public float startSpeed = 20f;
+    public float startSpeed = 5f;
 
     [HideInInspector]
     public float speed;
 
     public GameObject deathEffect;
 
-    public float startHealth = 15;
+    public float startHealth = 30;
     private float health;
-    private float worth = 15;
+    private float worth = 30;
     public Image healthBar;
 
     private bool isDead = false;
