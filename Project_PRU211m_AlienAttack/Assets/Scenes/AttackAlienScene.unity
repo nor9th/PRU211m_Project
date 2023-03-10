@@ -324,6 +324,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6603101034185011413, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: -16.298225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603101034185011413, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: -6.806705
+      objectReference: {fileID: 0}
     - target: {fileID: 6603101034185011414, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
       propertyPath: m_RootOrder
       value: 2

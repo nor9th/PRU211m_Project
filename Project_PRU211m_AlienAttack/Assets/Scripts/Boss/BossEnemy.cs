@@ -16,10 +16,7 @@ public class BossEnemy : MonoBehaviour
     private int currentWalkPointIndex;
     private Vector3 CurrentPointPosition;
     private Vector3 lastPointPosition;
-    private SpriteRenderer spriteRenderer;
-
-
-
+    //private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +27,13 @@ public class BossEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentPointPosition = transform.position;
+        //CurrentPointPosition = transform.position;
         Move();
         Rotate();
-        if (CurrentPointPositionReached())
+        /*if (CurrentPointPositionReached())
         {
             UpdateCurrentPointIndex();
-        }
+        }*/
     }
 
     private void UpdateCurrentPointIndex()
@@ -48,7 +45,7 @@ public class BossEnemy : MonoBehaviour
         }
         else
         {
-            EndPointReached();
+            //EndPointReached();
         }
     }
 
@@ -64,7 +61,7 @@ public class BossEnemy : MonoBehaviour
         float distanceToNextPointPosition = (transform.position - CurrentPointPosition).magnitude;
         if(distanceToNextPointPosition < 0.1f)
         {
-            lastPointPosition = transform.position;
+            lastPointPosition = CurrentPointPosition;
             return true;
         }
         return false;
@@ -74,11 +71,11 @@ public class BossEnemy : MonoBehaviour
     {
         if(CurrentPointPosition.x > lastPointPosition.x)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
