@@ -7,15 +7,5 @@ public class BossHealthBar : MonoBehaviour
 {
     [SerializeField] private Image fillAmountImage;
     public Image FillAmountImage => fillAmountImage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

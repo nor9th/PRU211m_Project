@@ -30,8 +30,9 @@ public class BossEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CurrentPointPosition = transform.position;
         Move();
-        //Rotate();
+        Rotate();
         if (CurrentPointPositionReached())
         {
             UpdateCurrentPointIndex();
@@ -47,7 +48,7 @@ public class BossEnemy : MonoBehaviour
         }
         else
         {
-            //EndPointReached();
+            EndPointReached();
         }
     }
 
@@ -85,5 +86,15 @@ public class BossEnemy : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, CurrentPointPosition, MoveSpeed * Time.deltaTime);
 
+    }
+
+    public void StopMovement()
+    {
+        
+    }
+
+    public void ResumeMovement()
+    {
+        
     }
 }
