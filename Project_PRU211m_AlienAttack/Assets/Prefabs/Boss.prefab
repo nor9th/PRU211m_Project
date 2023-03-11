@@ -136,9 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfac2c6c04a2bfa4c914ad62ef853b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1000
-  DeathCoinReward: 2
-  WalkPoint: {fileID: 6603101034185011413, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+  MoveSpeed: 5
 --- !u!1 &3202661821681685367
 GameObject:
   m_ObjectHideFlags: 0

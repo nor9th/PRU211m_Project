@@ -15,8 +15,7 @@ public class BossEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        walkPoint = GameObject.FindGameObjectsWithTag("walkpoint").GetComponent<WalkPoint>();
-        //GetComponent<WalkPoint>();
+        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
     }
 
     // Update is called once per frame
@@ -27,10 +26,22 @@ public class BossEnemy : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
-        if(Vector3.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
+        transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
+
+        Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
         {
-            walkPointIndex++;
+            if (walkPointIndex < walkPoint.walkpoints.Length - 1)
+            {
+                walkPointIndex++;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

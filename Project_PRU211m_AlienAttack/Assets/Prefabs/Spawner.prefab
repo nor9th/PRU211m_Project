@@ -40,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603101034185011414}
+  - component: {fileID: 5173980754523382005}
+  - component: {fileID: -2938403828778463311}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: walkpoint
@@ -66,6 +68,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5173980754523382005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603101034185011409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cd1a92b22e3044db16c7bba2c61034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkpoints:
+  - {fileID: 7431295888537751969}
+  - {fileID: 5764420429785159794}
+  - {fileID: 4310372845549310084}
+  - {fileID: 4828888013776990212}
+--- !u!114 &-2938403828778463311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603101034185011409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7a7505c2fc0044093fa667c26e00a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6603101034185011409}
+  poolSize: 20
 --- !u!1 &6749598084275657611
 GameObject:
   m_ObjectHideFlags: 0
