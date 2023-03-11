@@ -31,20 +31,20 @@ public class BossAnimation : MonoBehaviour
 
     private IEnumerator PlayHurt()
     {
-        bossEnemy.StopMovement();
+        //bossEnemy.StopMovement();
         PlayHurtAnimation();
         yield return new WaitForSeconds(GetCurrnetAnimationLenght() + 0.3f);
-        bossEnemy.ResumeMovement();
+        //bossEnemy.ResumeMovement();
     }
 
     private IEnumerator PlayDead()
     {
-        bossEnemy.StopMovement();
+        //bossEnemy.StopMovement();
         Instantiate(death, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
-        bossEnemy.ResumeMovement();
+        //bossEnemy.ResumeMovement();
         bossHealth.ResetHealth();
-        ObjectPooler.ReturnToPool(bossEnemy.gameObject);
+        //ObjectPooler.ReturnToPool(bossEnemy.gameObject);
     }
 
     private void BossHit(BossEnemy boss)

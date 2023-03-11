@@ -32,19 +32,4 @@ public class BossLevel : MonoBehaviour
     {
         
     }
-
-    private void WaveCompleted()
-    {
-
-    }
-
-    private void OnEnable()
-    {
-        BossEnemy.OnEndReached += ReduceLives;
-    }
-
-    private void OnDisable()
-    {
-        BossEnemy.OnEndReached -= ReduceLives;
-    }
 }
