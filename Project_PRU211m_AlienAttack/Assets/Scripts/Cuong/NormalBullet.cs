@@ -34,7 +34,8 @@ public class NormalBullet : MonoBehaviour
 	{
 		if (collision.tag == "Enemy")
 		{
-			Destroy(gameObject);
+            collision.GetComponent<TestEnemy>().health--;
+            Destroy(gameObject);
 		}
 	}
 }

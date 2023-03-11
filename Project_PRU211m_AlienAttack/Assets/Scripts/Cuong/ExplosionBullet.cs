@@ -14,7 +14,7 @@ public class ExplosionBullet : MonoBehaviour
 
 	void Start()
 	{
-		range = 0;
+		range = 5;
 		speed = 10;
 	}
 	public void gun(int atk, GameObject target)
@@ -35,9 +35,20 @@ public class ExplosionBullet : MonoBehaviour
 	{
 		if (collision.tag == "Enemy")
 		{
+			DestroyEnemy();
 			Destroy(gameObject);
 		}
 	}
-	
-	
+	private void DestroyEnemy()
+	{
+        Collider2D[] Enemy = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), range);
+		for (int i = 0; i < Enemy.Length; i++){
+			if (Enemy[i].tag=="Enemy") {
+
+				Enemy[i].GetComponent<TestEnemy>().health--;
+			}
+		}
+
+    }
+
 }

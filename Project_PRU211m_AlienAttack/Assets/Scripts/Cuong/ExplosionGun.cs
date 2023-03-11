@@ -35,21 +35,23 @@ public class ExplosionGun : MonoBehaviour
 	private void Rotate()
 	{
 		Collider2D[] hit = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), Range);
-		if (hit[0].tag == "Enemy" && hit.Length >= 1)
+		for (int i = 0; i < hit.Length; i++)
 		{
-
-
-			Vector2 lookDir = hit[0].transform.position - transform.position;
-			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0, 0, angle);
-			if ((int)counter % Reload == 0 && counter > Reload)
+			if (hit[0].tag == "Enemy" && hit.Length >= 1)
 			{
-				GameObject obj = Instantiate<GameObject>(Explosion_bullet, Spot.position, Explosion_gun.transform.rotation);
-				obj.GetComponent<ExplosionBullet>().gun(Atk, hit[0].gameObject);
-				counter = 0;
+
+
+				Vector2 lookDir = hit[0].transform.position - transform.position;
+				float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+				transform.rotation = Quaternion.Euler(0, 0, angle);
+				if ((int)counter % Reload == 0 && counter > Reload)
+				{
+					GameObject obj = Instantiate<GameObject>(Explosion_bullet, Spot.position, Explosion_gun.transform.rotation);
+					obj.GetComponent<ExplosionBullet>().gun(Atk, hit[0].gameObject);
+					counter = 0;
+				}
 			}
 		}
-
 	}
 
 	private void OnDrawGizmos()
