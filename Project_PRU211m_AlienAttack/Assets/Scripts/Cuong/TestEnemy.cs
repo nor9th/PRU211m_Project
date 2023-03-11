@@ -9,7 +9,7 @@ public class TestEnemy : MonoBehaviour
 	//Khu vực đặt bi
 	//kéo Rigid của player vào biến này
 	public Rigidbody2D rb;
-
+	public int health = 1;
 	//Nhận giá trị điều khiển từ bàn phím
 	public Vector2 moveInput;
 	void Start()
@@ -23,14 +23,12 @@ public class TestEnemy : MonoBehaviour
 		//Khu vực xử lý dữ liệu khi trò chơi chạy
 		//Khu vực này được gọi mỗi frame 1 lần
 
-		moveInput.x = Input.GetAxisRaw("Horizontal");
-		moveInput.y = Input.GetAxisRaw("Vertical");
+		rb.AddForce(transform.right * 50);
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (health <= 0)
 		{
-			rb.AddForce(transform.up * 500);
+			Destroy(gameObject);
 		}
-
 	}
 
 	private void FixedUpdate()
