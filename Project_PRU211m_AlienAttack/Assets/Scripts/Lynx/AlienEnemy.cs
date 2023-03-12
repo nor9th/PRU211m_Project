@@ -28,29 +28,29 @@ public class AlienEnemy : MonoBehaviour
 }
 
     // Update is called once per frame
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
+    //public void TakeDamage(float amount)
+    //{
+    //    health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+    //    healthBar.fillAmount = health / startHealth;
 
-        if (health <= 0 && !isDead)
-        {
-            Die();
-        }
-    }
+    //    if (health <= 0 && !isDead)
+    //    {
+    //        Die();
+    //    }
+    //}
 
-    void Die()
-    {
-        isDead = true;
+    //void Die()
+    //{
+    //    isDead = true;
 
-        //PlayerStats.Money += worth;
+    //    //PlayerStats.Money += worth;
 
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+    //    GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+    //    Destroy(effect, 5f);
 
-        WaveSpawner.EnemiesAlive--;
+    //    WaveSpawner.EnemiesAlive--;
 
-        Destroy(gameObject);
-    }
+    //    Destroy(gameObject);
+    //}
 }
