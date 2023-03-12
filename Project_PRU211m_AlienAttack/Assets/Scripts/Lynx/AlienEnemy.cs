@@ -44,7 +44,7 @@ public class AlienEnemy : MonoBehaviour
     {
         isDead = true;
 
-        PlayerStats.Money += worth;
+        //PlayerStats.Money += worth;
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
