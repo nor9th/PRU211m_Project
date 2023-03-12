@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7285ca1a4fccd4409901969f3406aaf, type: 3}
   m_Name: Normal_Gun
   m_EditorClassIdentifier: 
-  TurretPrefabs: {fileID: 6559505598683597425, guid: c294bad7828c5e04080a9498495fa556, type: 3}
+  TurretPrefabs: {fileID: 7123546620894395639, guid: 3dd2461c80671e340be748ba9e4e92c7, type: 3}
   TurretShopCost: 50
   TurretShopSprite: {fileID: -2126550268, guid: c0e8d5ad8e288414a83d6d4cb011def6, type: 3}
