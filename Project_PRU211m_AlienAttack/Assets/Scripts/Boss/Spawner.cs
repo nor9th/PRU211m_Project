@@ -6,43 +6,27 @@ using UnityEngine.Pool;
 
 public class Spawner : MonoBehaviour
 {
-
-    [Header("Settings")]
-    [SerializeField] private int enemyCount = 10;
-    [SerializeField] private GameObject testGO;
-
-    [Header("Fixed Delay")]
-    [SerializeField] private float delayBtwSpawns;
-
-    private float spawnTimer;
-    private int enemiesSpawned;
-
-    private ObjectPooler pooler;
+    [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private GameObject[] bossPrefabs;
+    [SerializeField] private bool canSpawn = true;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        pooler = GetComponent<ObjectPooler>();
+        StartCoroutine(BossSpawner());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator BossSpawner()
     {
-        spawnTimer = Time.deltaTime;
-        if (spawnTimer < 0)
+        WaitForSeconds wait = new WaitForSeconds(spawnRate);
+
+        while (canSpawn)
         {
-            spawnTimer = delayBtwSpawns;
-            if (enemiesSpawned < enemyCount)
-            {
-                enemiesSpawned++;
-                SpawnEnemy();
-            }
-        }
-    }
+            yield return wait;
+            int rand = UnityEngine.Random.Range(0, bossPrefabs.Length);
+            GameObject bossToSpawn = bossPrefabs[rand];
 
-    private void SpawnEnemy()
-    {
-        GameObject newInstance = pooler.GetInstanceFromPool();
-        newInstance.SetActive(true);
+            Instantiate(bossToSpawn, transform.position, Quaternion.identity);
+        }
     }
 }
