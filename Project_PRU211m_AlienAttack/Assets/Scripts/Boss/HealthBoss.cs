@@ -47,7 +47,7 @@ public class HealthBoss : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        CurrentHealth -= damage;
+		CurrentHealth = CurrentHealth - damage;
         if(CurrentHealth < 0)
         {
             CurrentHealth = 0;

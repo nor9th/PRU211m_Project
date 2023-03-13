@@ -130,6 +130,8 @@ MonoBehaviour:
   Normal_gun: {fileID: 4166920913387419721}
   Spot: {fileID: 7123546619896941048}
   counter: 0
+  z: 0
+  CurrentEnemy: {fileID: 0}
 --- !u!1001 &7123546620605674040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +186,10 @@ PrefabInstance:
     - target: {fileID: 6559505598683597425, guid: c294bad7828c5e04080a9498495fa556, type: 3}
       propertyPath: m_Name
       value: Normal_Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559505598683597425, guid: c294bad7828c5e04080a9498495fa556, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c294bad7828c5e04080a9498495fa556, type: 3}

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7130ec9996c931e4cb4f5801e5f5e4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Explosion_bullet: {fileID: 7012971618598568765, guid: 14943815c161991478fc56a77acbb68d, type: 3}
+  Explosion_bullet: {fileID: 7012971618598568765, guid: 0bbe22701b5f467469691472db6435d1, type: 3}
   Explosion_gun: {fileID: 9003500236806200913}
   Spot: {fileID: 166627347379601049}
   counter: 0
