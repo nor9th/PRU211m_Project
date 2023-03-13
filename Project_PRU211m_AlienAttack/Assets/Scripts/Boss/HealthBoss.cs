@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class HealthBoss : MonoBehaviour
 {
@@ -14,9 +15,13 @@ public class HealthBoss : MonoBehaviour
     [SerializeField] private Transform barPosition;
     [SerializeField] private float initialHealth = 10f;
     [SerializeField] private float maxHealth = 10f;
+
+    public AudioSource audio;
+
     public float CurrentHealth { get; set; }
     private Image healthBar;
     private BossEnemy enemy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +56,7 @@ public class HealthBoss : MonoBehaviour
         if(CurrentHealth < 0)
         {
             CurrentHealth = 0;
+            audio.Play();
             Die();
         }
         else
