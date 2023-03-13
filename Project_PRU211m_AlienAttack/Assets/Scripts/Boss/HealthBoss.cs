@@ -30,10 +30,10 @@ public class HealthBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        /*if(Input.GetKeyDown(KeyCode.P))
         {
             DealDamage(5f);
-        }
+        }*/
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth/maxHealth, Time.deltaTime * 10f);
     }
 
@@ -45,7 +45,7 @@ public class HealthBoss : MonoBehaviour
         healthBar = bhb.FillAmountImage;
     }
 
-    private void DealDamage(float damage)
+    public void DealDamage(float damage)
     {
         CurrentHealth -= damage;
         if(CurrentHealth < 0)

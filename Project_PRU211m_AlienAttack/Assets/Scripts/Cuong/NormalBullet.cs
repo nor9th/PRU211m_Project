@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NormalBullet : MonoBehaviour
@@ -34,7 +35,8 @@ public class NormalBullet : MonoBehaviour
 	{
 		if (collision.tag == "Enemy")
 		{
-            collision.GetComponent<TestEnemy>().health--;
+			//collision.GetComponent<TestEnemy>().health--;
+			collision.GetComponent<HealthBoss>().DealDamage(5f);
             Destroy(gameObject);
 		}
 	}

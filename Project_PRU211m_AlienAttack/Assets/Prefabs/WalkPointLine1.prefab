@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 8038445663637301132}
   - component: {fileID: -8269730795974963233}
   m_Layer: 0
-  m_Name: WalkPoint
+  m_Name: WalkPointLine1
   m_TagString: walkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

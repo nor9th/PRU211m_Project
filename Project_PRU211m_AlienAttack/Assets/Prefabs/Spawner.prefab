@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2198945aba4188c47a3bc16b57ef5d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 5
   bossPrefabs:
   - {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
   canSpawn: 1
