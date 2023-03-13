@@ -29,8 +29,21 @@ public class BossEnemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
 
         Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+
+        if (transform.position.x < dir.x)
+        {
+            transform.localScale = new Vector3(1, 1, 0);
+            dir.x = transform.localScale.x;
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 0);
+            dir.x = transform.localScale.x;
+        }
+
+
 
         if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
         {

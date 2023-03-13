@@ -21,7 +21,7 @@ public class NormalGun : MonoBehaviour
 	void Start()
     {
         Atk = 5;
-        Range = 10;
+        Range = 20;
         Reload = 2;
         Gold = 30; 
         Level= 1;   
@@ -36,18 +36,22 @@ public class NormalGun : MonoBehaviour
 	private void Rotate()
 	{
 		Collider2D[] hit = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), Range);
-		if (hit[0].tag == "Enemy" && hit.Length>=1)
-		{
-                Vector2 lookDir = hit[0].transform.position - transform.position;
+        for(int i = 0; i < hit.Length;i++)
+        {
+            if (hit[i].tag == "Enemy" && hit.Length >= 1)
+            {
+                Vector2 lookDir = hit[i].transform.position - transform.position;
                 float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0, 0, angle);
-			if ((int)counter % Reload == 0 && counter > Reload)
-			{
-				GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
-                obj.GetComponent<NormalBullet>().gun(Atk, hit[0].gameObject);
-                counter = 0;
+                if (counter > Reload)
+                {
+                    GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
+                    obj.GetComponent<NormalBullet>().gun(Atk, hit[i].gameObject);
+                    counter = 0;
+                }
             }
-		}
+        }
+		
 
 	}
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 203525538026681360}
   - component: {fileID: 7521784525994439764}
   - component: {fileID: 4346285062718862076}
-  - component: {fileID: -6607741194071720084}
+  - component: {fileID: 4723494601625771833}
   m_Layer: 5
   m_Name: BarCanvas
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4346285062718862076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &-6607741194071720084
+--- !u!114 &4723494601625771833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 615064048976983439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d7c27168670e514b9aa01256711b86b, type: 3}
+  m_Script: {fileID: 11500000, guid: 377fabffba4c95d48b952f3001b9675f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fillAmountImage: {fileID: 6647870124292837167}
