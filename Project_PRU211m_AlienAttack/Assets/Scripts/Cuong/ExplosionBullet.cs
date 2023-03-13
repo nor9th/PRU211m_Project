@@ -30,6 +30,11 @@ public class ExplosionBullet : MonoBehaviour
 			movepoint = target.transform.position;
 			transform.position = Vector2.MoveTowards(transform.position, movepoint, speed * Time.deltaTime);
 		}
+		else
+		{
+			Destroy(gameObject);
+
+		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{

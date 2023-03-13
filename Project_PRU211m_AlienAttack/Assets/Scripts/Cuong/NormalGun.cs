@@ -48,7 +48,7 @@ public class NormalGun : MonoBehaviour
                 if (hit[i].tag == "Enemy" && hit.Length >= 1)
                 {
 
-                    CurrentEnemy = hit[0].gameObject;
+                    CurrentEnemy = hit[i].gameObject;
 
                   
                 }
@@ -62,6 +62,11 @@ public class NormalGun : MonoBehaviour
             if (counter > Reload)
             {
                 GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
+                if(CurrentEnemy == null)
+                {
+                    Destroy(obj.GetComponent<NormalBullet>());
+
+				}
                 obj.GetComponent<NormalBullet>().gun(Atk, CurrentEnemy.gameObject);
                 counter = 0;
             }
