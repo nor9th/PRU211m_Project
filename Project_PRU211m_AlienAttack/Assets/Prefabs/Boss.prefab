@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfb61ea4bc5e7e4b800da2016fc659c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
+  MoveSpeed: 5
 --- !u!114 &447879776125809939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4411912243144961722}
   barPosition: {fileID: 6914474136493348199}
-  initialHealth: 10
-  maxHealth: 10
+  initialHealth: 50
+  maxHealth: 50
   audio: {fileID: 669966272683962370}
 --- !u!61 &3655565349076884936
 BoxCollider2D:

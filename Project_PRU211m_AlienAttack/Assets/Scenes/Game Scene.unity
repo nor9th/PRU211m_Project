@@ -25315,9 +25315,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+      propertyPath: bossPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
       propertyPath: bossPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+      propertyPath: bossPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3875137554003869897, guid: e42efab94b4354a4eaacf06b567e6465, type: 3}
     - target: {fileID: 6603101034185011409, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
       propertyPath: m_Name
       value: Spawner
