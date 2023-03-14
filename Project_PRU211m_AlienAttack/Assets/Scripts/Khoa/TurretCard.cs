@@ -30,5 +30,6 @@ public class TurretCard : MonoBehaviour
         UIManager.UI.CloseTurretShopPanel();
         Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
         Debug.Log("turret Create");
+        GC.canClick = true;
     }
 }
