@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAnimation : MonoBehaviour
 {
-    public GameObject death;
+    //public GameObject death;
     private Animator animator;
     private BossEnemy bossEnemy;
     private HealthBoss bossHealth;
@@ -20,7 +20,7 @@ public class BossAnimation : MonoBehaviour
     // Update is called once per frame
     private void PlayHurtAnimation()
     {
-        animator.SetTrigger("Hurt");
+        animator.SetTrigger("boss_hurt");
     }
 
     private float GetCurrnetAnimationLenght()
@@ -40,7 +40,7 @@ public class BossAnimation : MonoBehaviour
     private IEnumerator PlayDead()
     {
         //bossEnemy.StopMovement();
-        Instantiate(death, transform.position, Quaternion.identity);
+        //Instantiate(death, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
         //bossEnemy.ResumeMovement();
         bossHealth.ResetHealth();

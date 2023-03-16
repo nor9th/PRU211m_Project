@@ -27,7 +27,6 @@ public class TurretCard : MonoBehaviour
 
     public void PlaceTurret()
     {
-        
         UIManager.UI.CloseTurretShopPanel();
         Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
         Debug.Log("turret Create");
