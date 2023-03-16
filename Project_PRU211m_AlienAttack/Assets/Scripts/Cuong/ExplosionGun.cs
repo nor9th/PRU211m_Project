@@ -47,23 +47,26 @@ public class ExplosionGun : MonoBehaviour
 				}
 			}
 		}
-		if (Vector3.Distance(transform.position, CurrentEnemy.transform.position) <= Range)
-		{
-			Vector2 lookDir = CurrentEnemy.transform.position - transform.position;
-			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0, 0, angle);
-			if (counter > Reload)
-			{
-				GameObject obj = Instantiate<GameObject>(Explosion_bullet, Spot.position, Explosion_gun.transform.rotation);
-				obj.GetComponent<ExplosionBullet>().gun(Atk, CurrentEnemy.gameObject);
-				counter = 0;
-			}
-		}
 		else
 		{
-			CurrentEnemy = null;
-
-		}
+            if (Vector3.Distance(transform.position, CurrentEnemy.transform.position) <= Range)
+            {
+                Vector2 lookDir = CurrentEnemy.transform.position - transform.position;
+                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+                if (counter > Reload)
+                {
+                    GameObject obj = Instantiate<GameObject>(Explosion_bullet, Spot.position, Explosion_gun.transform.rotation);
+                    obj.GetComponent<ExplosionBullet>().gun(Atk, CurrentEnemy.gameObject);
+                    counter = 0;
+                }
+            }
+            else
+            {
+                CurrentEnemy = null;
+            }
+        }
+		
 	}
 
 	private void OnDrawGizmos()

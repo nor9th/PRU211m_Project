@@ -11,8 +11,6 @@ public class TestGame : MonoBehaviour
     public float count = 0;
     public GameOver1 gameover;
     public Scoro a ;
-    public Text score;
-    public Button b;
     void Start()
     {
         if (a.Value == true)
@@ -26,7 +24,7 @@ public class TestGame : MonoBehaviour
     void Update()
     {
         count = count + Time.deltaTime;
-        score.text = count.ToString();
+        //score.text = count.ToString();
         if (count > 10)
         {
             GameOver();
@@ -34,14 +32,13 @@ public class TestGame : MonoBehaviour
     }
     public void Saving()
     {
-        PlayerPrefs.SetFloat("Score", count);
-        Debug.Log(PlayerPrefs.GetFloat("Score"));
+        //PlayerPrefs.SetFloat("Score", count);
+        //Debug.Log(PlayerPrefs.GetFloat("Score"));
         SceneManager.LoadScene("Start");
     }
     public void GameOver()
     {
-gameObject.SetActive(false);
+        gameObject.SetActive(false);
         gameover.setup();
-
     }
 }
