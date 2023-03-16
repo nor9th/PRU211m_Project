@@ -46,8 +46,8 @@ public class Player : MonoBehaviour
         }
 
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-        HeartText.text = string.Format("Wave: " + HeartInGame);
-        GoldText.text = string.Format("Wave: " + GoldInGame);
+        HeartText.text = string.Format("Heart: " + HeartInGame);
+        GoldText.text = string.Format("Gold: " + GoldInGame);
         WaveText.text = string.Format("Wave: " + WaveInGame);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
     }

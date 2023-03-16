@@ -9,28 +9,28 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex;
 
-    private WalkPoint walkPoint;
-    private int walkPointIndex;
+    //private WalkPoint walkPoint;
+    //private int walkPointIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        //target = Waypoints.points[0];
-        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        target = Waypoints.points[0];
+        //walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWaypoint();
             //return;
-        }*/
-        transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, speed * Time.deltaTime);
+        }
+        /*transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, speed * Time.deltaTime);
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 
     void GetNextWaypoint()
