@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 21730150}
   - component: {fileID: 21730149}
   m_Layer: 5
-  m_Name: UpgrdaeButton
+  m_Name: UpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18385,16 +18385,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 93d3456d0fbf0024cb0d229a5e6c31b7, type: 3}
 --- !u!1 &351122629
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1876031547666708684, guid: 93d3456d0fbf0024cb0d229a5e6c31b7, type: 3}
-  m_PrefabInstance: {fileID: 623593968}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &303246422 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2434143600878807391, guid: 93d3456d0fbf0024cb0d229a5e6c31b7, type: 3}
-  m_PrefabInstance: {fileID: 623593968}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &303246423
-BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18439,7 +18429,10 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351122629}
   m_Enabled: 1
-  m_Density: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -19573,8 +19566,9 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &779825084
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1876031547666708684, guid: 93d3456d0fbf0024cb0d229a5e6c31b7, type: 3}
-  m_PrefabInstance: {fileID: 1342803699}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -19641,7 +19635,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 50
 --- !u!222 &779825087
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20508,7 +20502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '200
+  m_Text: '100
 
 '
 --- !u!222 &910496059
@@ -22287,8 +22281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11095a711f202df4b88ce20e97aa1eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurretCardPrefab: {fileID: 0}
-  TurretPanelContainer: {fileID: 0}
+  TurretCardPrefab: {fileID: 1435728051}
+  TurretPanelContainer: {fileID: 1270968296}
   TurretSettings:
   - {fileID: 11400000, guid: 4625130ba82d78a4a8506c4d2aa8a796, type: 2}
   - {fileID: 11400000, guid: fe7d76e65a7dc564ca405be553aac3b8, type: 2}
