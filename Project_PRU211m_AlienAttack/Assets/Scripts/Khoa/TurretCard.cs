@@ -22,7 +22,7 @@ public class TurretCard : MonoBehaviour
     {
         TurretLoaded = turretSettings;
         turretImage.sprite = turretSettings.TurretShopSprite;
-        turretCost.text = turretSettings.TurretShopSprite.ToString();
+        turretCost.text = turretSettings.TurretShopCost.ToString();
     }
 
     public void PlaceTurret()
