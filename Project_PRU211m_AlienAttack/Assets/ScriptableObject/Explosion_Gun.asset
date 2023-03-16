@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Explosion_Gun
   m_EditorClassIdentifier: Assembly-CSharp::NewBehaviourScript/TurretSettings
   TurretPrefabs: {fileID: 166627348024664083, guid: 8d240a064bc7c8846a6a894b9fc4abcb, type: 3}
-  TurretShopCost: 100
+  TurretShopCost: 200
   TurretShopSprite: {fileID: 1262532731, guid: c4ac7bae549d0e64690b7abcfebdad6f, type: 3}

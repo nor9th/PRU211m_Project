@@ -45,7 +45,8 @@ public class ExplosionBullet : MonoBehaviour
 		for (int i = 0; i < Enemy.Length; i++){
 			if (Enemy[i].tag=="Enemy") {
 
-				Enemy[i].GetComponent<TestEnemy>().health--;
+				Enemy[i].GetComponent<HealthBoss>().DealDamage(5f);
+				Destroy(gameObject);
 			}
 		}
 
