@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     //public static int EnemiesAlive = 0;
-    //public Wave[] waves;
+    public Wave[] waves;
 
     public Transform spawnPoint;
 
@@ -51,35 +51,35 @@ public class WaveSpawner : MonoBehaviour
     {
         //PlayerStats.Rounds++;
 
-        //Wave wave = waves[waveIndex];
+        Wave wave = waves[waveIndex];
 
         //EnemiesAlive = wave.count;
 
-        //for (int i = 0; i < wave.count; i++)
-        //{
-        //    SpawnEnemy(wave.enemy);
-        //    yield return new WaitForSeconds(1f / wave.rate);
-        //}
-
-        //waveIndex++;
+        for (int i = 0; i < wave.count; i++)
+        {
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
 
         waveIndex++;
-        for (int i = 0; i < waveIndex; i++)
-        {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
-        }
+
+        //waveIndex++;
+        //for (int i = 0; i < waveIndex; i++)
+        //{
+        //    SpawnEnemy();
+        //    yield return new WaitForSeconds(0.5f);
+        //}
 
         
     }
 
 
-    //void SpawnEnemy(GameObject enemy)
-    //{
-    //    Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-    //}
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
     }
+    //void SpawnEnemy()
+    //{
+    //    Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    //}
 }

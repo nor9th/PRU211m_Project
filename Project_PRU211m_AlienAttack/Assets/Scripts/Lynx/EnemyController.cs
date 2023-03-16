@@ -16,12 +16,12 @@ public class EnemyController : MonoBehaviour
 
     public int worth = 50;
 
-    public GameObject deathEffect;
+    //public GameObject deathEffect;
 
-    [Header("Unity Stuff")]
-    public Image healthBar;
+    //[Header("Unity Stuff")]
+    //public Image healthBar;
 
-    private bool isDead = false;
+    //private bool isDead = false;
 
     void Start()
     {
