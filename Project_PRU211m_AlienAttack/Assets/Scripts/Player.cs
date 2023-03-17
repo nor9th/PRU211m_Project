@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     private float TimeInGame;
     public Text TimeText;
 
@@ -16,10 +17,12 @@ public class Player : MonoBehaviour
     public int HeartInGame = 10;
     public Text HeartText;
 
+
     private int GoldInGame = 100;
     public Text GoldText;
 
     private bool isPause = false;
+
 
     public GameOver1 gameover;
 
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
         {
             CountTime = 0f;
             WaveInGame++;
+
             HeartInGame -= 5;
             for (int i = 0; i < WaveInGame; i++)
             {
@@ -46,11 +50,13 @@ public class Player : MonoBehaviour
             
         }
 
+
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         HeartText.text = string.Format("Heart: " + HeartInGame);
         GoldText.text = string.Format("Gold: " + GoldInGame);
         WaveText.text = string.Format("Wave: " + WaveInGame);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
+
 
         if (HeartInGame <=0)
         {
@@ -65,6 +71,7 @@ public class Player : MonoBehaviour
             isPause = true;
             TimeInGame = Time.deltaTime;
             TimeInGame = Time.timeScale;
+
         }
     }
     public void GameOver()

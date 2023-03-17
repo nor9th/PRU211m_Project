@@ -16,7 +16,16 @@ public class TestGame : MonoBehaviour
         
         if (a.Value == true)
         {
-            gameObject.GetComponent<Player>().HeartInGame = PlayerPrefs.GetInt("Heart");
+            gameObject.GetComponent<Player>().HeartInGame = PlayerPrefs.GetInt("Health");
+
+            gameObject.GetComponent<Player>().WaveInGame = PlayerPrefs.GetInt("Wave");
+
+            gameObject.GetComponent<Player>().TimeInGame = PlayerPrefs.GetFloat("Time");
+
+            gameObject.GetComponent<Player>().GoldInGame = PlayerPrefs.GetInt("Gold");
+
+
+
             a.setValue(false);
         }
         
@@ -26,6 +35,28 @@ public class TestGame : MonoBehaviour
     void Update()
     {
         count = count + Time.deltaTime;
+
+        //score.text = count.ToString();
+        if (count > 100)
+
+        {
+            GameOver();
+        }
+    }
+    public void Saving()
+    {
+
+        PlayerPrefs.SetInt("Health", gameObject.GetComponent<Player>().HeartInGame);
+
+        PlayerPrefs.SetInt("Wave", gameObject.GetComponent<Player>().WaveInGame);
+
+        PlayerPrefs.SetFloat("Time", gameObject.GetComponent<Player>().TimeInGame);
+
+
+        PlayerPrefs.SetInt("Gold", gameObject.GetComponent<Player>().GoldInGame);
+
+
+
         //score.text = count.ToString();
        
     }
