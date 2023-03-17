@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     private WalkPoint walkPoint;
     private int walkPointIndex;
 
+    private WalkPoint walkPoint;
+    private int walkPointIndex;
+
     // Start is called before the first frame update
     void Start()
     {
