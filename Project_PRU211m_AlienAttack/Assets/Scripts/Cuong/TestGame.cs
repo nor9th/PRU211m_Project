@@ -13,11 +13,13 @@ public class TestGame : MonoBehaviour
     public Scoro a ;
     void Start()
     {
+        
         if (a.Value == true)
         {
-            count = PlayerPrefs.GetFloat("Score");
+            gameObject.GetComponent<Player>().HeartInGame = PlayerPrefs.GetInt("Heart");
             a.setValue(false);
         }
+        
     }
 
     // Update is called once per frame
@@ -25,20 +27,13 @@ public class TestGame : MonoBehaviour
     {
         count = count + Time.deltaTime;
         //score.text = count.ToString();
-        if (count > 10)
-        {
-            GameOver();
-        }
+       
     }
     public void Saving()
     {
-        //PlayerPrefs.SetFloat("Score", count);
-        //Debug.Log(PlayerPrefs.GetFloat("Score"));
+        PlayerPrefs.SetInt("Heart", gameObject.GetComponent<Player>().HeartInGame);
+        Debug.Log(PlayerPrefs.GetFloat("Heart"));
         SceneManager.LoadScene("Start");
     }
-    public void GameOver()
-    {
-        gameObject.SetActive(false);
-        gameover.setup();
-    }
+    
 }

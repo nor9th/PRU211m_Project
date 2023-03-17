@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private int WaveInGame;
     public Text WaveText;
 
-    private int HeartInGame = 10;
+    public int HeartInGame = 10;
     public Text HeartText;
 
     private int GoldInGame = 100;

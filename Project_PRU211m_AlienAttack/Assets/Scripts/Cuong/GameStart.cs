@@ -9,6 +9,7 @@ public class GameStart : MonoBehaviour
     public Scoro a; 
     public void Startgame()
     {
+        a.setValue(false);
         SceneManager.LoadScene("Game Scene");
 
     }
