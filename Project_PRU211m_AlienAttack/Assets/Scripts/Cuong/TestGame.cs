@@ -17,7 +17,15 @@ public class TestGame : MonoBehaviour
     {
         if (a.Value == true)
         {
-            count = PlayerPrefs.GetFloat("Score");
+            gameObject.GetComponent<Player>().HeartInGame = PlayerPrefs.GetInt("Health");
+
+            gameObject.GetComponent<Player>().WaveInGame = PlayerPrefs.GetInt("Wave");
+
+            gameObject.GetComponent<Player>().TimeInGame = PlayerPrefs.GetFloat("Time");
+
+            gameObject.GetComponent<Player>().GoldInGame = PlayerPrefs.GetInt("Gold");
+
+
             a.setValue(false);
         }
     }
@@ -26,15 +34,33 @@ public class TestGame : MonoBehaviour
     void Update()
     {
         count = count + Time.deltaTime;
+<<<<<<< Updated upstream
         score.text = count.ToString();
         if (count > 10)
+=======
+        //score.text = count.ToString();
+        if (count > 100)
+>>>>>>> Stashed changes
         {
             GameOver();
         }
     }
     public void Saving()
     {
+<<<<<<< Updated upstream
         PlayerPrefs.SetFloat("Score", count);
+=======
+        PlayerPrefs.SetInt("Health", gameObject.GetComponent<Player>().HeartInGame);
+
+        PlayerPrefs.SetInt("Wave", gameObject.GetComponent<Player>().WaveInGame);
+
+        PlayerPrefs.SetFloat("Time", gameObject.GetComponent<Player>().TimeInGame);
+
+
+        PlayerPrefs.SetInt("Gold", gameObject.GetComponent<Player>().GoldInGame);
+
+
+>>>>>>> Stashed changes
         Debug.Log(PlayerPrefs.GetFloat("Score"));
         SceneManager.LoadScene("Start");
     }
