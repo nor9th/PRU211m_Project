@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public Vector3 turretPoint;
     public bool canClick = true;
     
+    public GameObject Turret;
+
     void Start()
     {
         
@@ -40,16 +42,21 @@ public class GameController : MonoBehaviour
             if (hit != null && hit1 == null)
             {
                 turretPoint = hit.transform.position;
-
                 UIManager.UI.TurretShop.SetActive(true);
                 canClick = false;
-                Debug.Log("ban");
+                
             }
             if (hit != null && hit1 != null)
             {
                 turretPoint = hit.transform.position;
                 UIManager.UI.TurretShop.SetActive(false);
-                Debug.Log("ban2");
+                Turret = hit1.gameObject;
+                if (Turret == null)
+                {
+                    Debug.Log("null");
+                }
+                UIManager.UI.TurretInfo.SetActive(true);
+                canClick = false;
 
             }
         }
