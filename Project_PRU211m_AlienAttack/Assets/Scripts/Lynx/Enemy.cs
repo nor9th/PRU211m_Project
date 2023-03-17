@@ -13,8 +13,11 @@ public class Enemy : MonoBehaviour
     private WalkPoint walkPoint;
     private int walkPointIndex;
 
+<<<<<<< Updated upstream
     //private WalkPoint walkPoint;
     //private int walkPointIndex;
+=======
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
