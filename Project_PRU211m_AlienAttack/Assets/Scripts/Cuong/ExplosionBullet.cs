@@ -30,6 +30,11 @@ public class ExplosionBullet : MonoBehaviour
 			movepoint = target.transform.position;
 			transform.position = Vector2.MoveTowards(transform.position, movepoint, speed * Time.deltaTime);
 		}
+		else
+		{
+			Destroy(gameObject);
+
+		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -45,7 +50,8 @@ public class ExplosionBullet : MonoBehaviour
 		for (int i = 0; i < Enemy.Length; i++){
 			if (Enemy[i].tag=="Enemy") {
 
-				Enemy[i].GetComponent<TestEnemy>().health--;
+				Enemy[i].GetComponent<HealthBoss>().DealDamage(5f);
+				Destroy(gameObject);
 			}
 		}
 

@@ -5,22 +5,26 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float TimeInGame;
+
+    private float TimeInGame;
     public Text TimeText;
 
     private float CountTime;
 
-    public int WaveInGame;
+    private int WaveInGame;
     public Text WaveText;
 
     public int HeartInGame = 10;
     public Text HeartText;
 
-    public int GoldInGame = 100;
+
+    private int GoldInGame = 100;
     public Text GoldText;
 
     private bool isPause = false;
 
+
+    public GameOver1 gameover;
 
     void Start()
     {
@@ -37,7 +41,8 @@ public class Player : MonoBehaviour
         {
             CountTime = 0f;
             WaveInGame++;
-            HeartInGame -= 1;
+
+            HeartInGame -= 5;
             for (int i = 0; i < WaveInGame; i++)
             {
                 GoldInGame += (i * 100);
@@ -51,6 +56,12 @@ public class Player : MonoBehaviour
         GoldText.text = string.Format("Gold: " + GoldInGame);
         WaveText.text = string.Format("Wave: " + WaveInGame);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
+
+
+        if (HeartInGame <=0)
+        {
+            GameOver();
+        }
     }
 
     void PauseGame()
@@ -60,7 +71,12 @@ public class Player : MonoBehaviour
             isPause = true;
             TimeInGame = Time.deltaTime;
             TimeInGame = Time.timeScale;
-            DontDestroyOnLoad(this);
+
         }
+    }
+    public void GameOver()
+    {
+        gameObject.SetActive(false);
+        gameover.setup();
     }
 }

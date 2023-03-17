@@ -9,13 +9,14 @@ public class GameStart : MonoBehaviour
     public Scoro a; 
     public void Startgame()
     {
-        SceneManager.LoadScene("EndGame");
+        a.setValue(false);
+        SceneManager.LoadScene("Game Scene");
 
     }
     public void Resumeaaa()
     {
         a.setValue( true);
-        SceneManager.LoadScene("EndGame");
+        SceneManager.LoadScene("Game Scene");
 
     }
     public void quitGame()

@@ -7,16 +7,15 @@ using UnityEngine.UI;
 public class GameOver1 : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text points;
     public void setup()
     {
         gameObject.SetActive(true);
     }
-    public void menu()
-    {
-        SceneManager.LoadScene("EndGame");
-    }
     public void restart()
+    {
+        SceneManager.LoadScene("Game Scene");
+    }
+    public void menu()
     {
         SceneManager.LoadScene("Start");
 

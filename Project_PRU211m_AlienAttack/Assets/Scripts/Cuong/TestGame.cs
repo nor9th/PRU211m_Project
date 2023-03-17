@@ -11,10 +11,9 @@ public class TestGame : MonoBehaviour
     public float count = 0;
     public GameOver1 gameover;
     public Scoro a ;
-    public Text score;
-    public Button b;
     void Start()
     {
+        
         if (a.Value == true)
         {
             gameObject.GetComponent<Player>().HeartInGame = PlayerPrefs.GetInt("Health");
@@ -26,30 +25,27 @@ public class TestGame : MonoBehaviour
             gameObject.GetComponent<Player>().GoldInGame = PlayerPrefs.GetInt("Gold");
 
 
+
             a.setValue(false);
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         count = count + Time.deltaTime;
-<<<<<<< Updated upstream
-        score.text = count.ToString();
-        if (count > 10)
-=======
+
         //score.text = count.ToString();
         if (count > 100)
->>>>>>> Stashed changes
+
         {
             GameOver();
         }
     }
     public void Saving()
     {
-<<<<<<< Updated upstream
-        PlayerPrefs.SetFloat("Score", count);
-=======
+
         PlayerPrefs.SetInt("Health", gameObject.GetComponent<Player>().HeartInGame);
 
         PlayerPrefs.SetInt("Wave", gameObject.GetComponent<Player>().WaveInGame);
@@ -60,14 +56,15 @@ public class TestGame : MonoBehaviour
         PlayerPrefs.SetInt("Gold", gameObject.GetComponent<Player>().GoldInGame);
 
 
->>>>>>> Stashed changes
-        Debug.Log(PlayerPrefs.GetFloat("Score"));
+
+        //score.text = count.ToString();
+       
+    }
+    public void Saving()
+    {
+        PlayerPrefs.SetInt("Heart", gameObject.GetComponent<Player>().HeartInGame);
+        Debug.Log(PlayerPrefs.GetFloat("Heart"));
         SceneManager.LoadScene("Start");
     }
-    public void GameOver()
-    {
-gameObject.SetActive(false);
-        gameover.setup();
-
-    }
+    
 }
