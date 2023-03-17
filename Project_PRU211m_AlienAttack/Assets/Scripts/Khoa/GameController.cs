@@ -47,15 +47,37 @@ public class GameController : MonoBehaviour
             }
             if (hit != null && hit1 != null)
             {
+                int gunAtk=0;
+                int gunRange = 0;
+                int gunReload = 0;
+                int gunGold = 0;
                 turretPoint = hit.transform.position;
                 UIManager.UI.TurretShop.SetActive(false);
                 Turret = hit1.gameObject;
+                if (Turret.CompareTag("NormalGun"))
+                {
+                    NormalGun normalGun = Turret.GetComponent<NormalGun>();
+                    gunAtk = normalGun.Atk;
+                    gunRange = normalGun.Range;
+                    gunReload = normalGun.Reload;
+                    gunGold = normalGun.Gold;
+
+                }
+                else if (Turret.CompareTag("ExplosionGun"))
+                {
+                    ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
+                    gunAtk = explosionGun.Atk;
+                    gunRange = explosionGun.Range;
+                    gunReload = explosionGun.Reload;
+                    gunGold= explosionGun.Gold;
+                }
                 if (Turret == null)
                 {
                     Debug.Log("null");
                 }
                 UIManager.UI.TurretInfo.SetActive(true);
                 canClick = false;
+                TurretInfo.turretInfo.setInfoText("Level: 1","Attack: " + gunAtk,"Reload: " + gunReload,"Range: "+ gunRange,"Gold: " + gunGold);
 
             }
         }

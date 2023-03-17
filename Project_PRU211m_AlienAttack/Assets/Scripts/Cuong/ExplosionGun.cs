@@ -6,11 +6,11 @@ public class ExplosionGun : MonoBehaviour
 {
 	// Start is called before the first frame update
 
-	private int Atk;
-	private int Range;
-	private int Gold;
-	private int Level;
-	private int Reload;
+	public int Atk;
+    public int Range;
+    public int Gold;
+    public int Level;
+    public int Reload;
 
 	public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;
