@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    private float TimeInGame;
+    public float TimeInGame;
     public Text TimeText;
 
     private float CountTime;
 
-    private int WaveInGame;
+    public int WaveInGame;
     public Text WaveText;
 
     public int HeartInGame = 10;
     public Text HeartText;
 
 
-    private int GoldInGame = 100;
+    public int GoldInGame = 100;
     public Text GoldText;
 
     private bool isPause = false;

@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 3875137554003869911}
   - component: {fileID: 3875137554003869896}
   - component: {fileID: 5659065646092653892}
-  - component: {fileID: -1551584276720015533}
-  - component: {fileID: 338979977708160276}
-
+  - component: {fileID: 925538696067513029}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -98,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: b5066b2bfdefe18449c54e4af28938e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.93, y: 4.36}
   m_EdgeRadius: 0
---- !u!114 &-1551584276720015533
+--- !u!114 &925538696067513029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,26 +143,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3875137554003869897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effb10ff0b358264bb6c6ea58b26d82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 0
---- !u!114 &338979977708160276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3875137554003869897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0749171694c5cc74a974596b85dc262b, type: 3}
+  m_Script: {fileID: 11500000, guid: fc15060ddc9171545a4575bb61dbc4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 10
   speed: 0
-  deathEffect: {fileID: 0}
   startHealth: 10
+  MoveSpeed: 3
 --- !u!1001 &6293055579044938856
 PrefabInstance:
   m_ObjectHideFlags: 0

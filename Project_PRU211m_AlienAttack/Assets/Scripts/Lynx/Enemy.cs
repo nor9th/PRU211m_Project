@@ -39,26 +39,26 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Waypoints.points[walkPointIndex].position, MoveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
 
         //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
         /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
 
-        if (transform.position.x < Waypoints.points[walkPointIndex].position.x)
+        if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
-            transform.localScale = new Vector3((float)0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)0.2, (float)0.2, 0);
         }
         else
         {
-            transform.localScale = new Vector3((float)-0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)-0.2, (float)0.2, 0);
         }
 
 
 
-        if (Vector2.Distance(transform.position, Waypoints.points[walkPointIndex].position) < 0.1f)
+        if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
         {
-            if (walkPointIndex < Waypoints.points.Length - 1)
+            if (walkPointIndex < walkPoint.walkpoints.Length - 1)
             {
                 walkPointIndex++;
             }
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }*/
+        }
     }
 
     //void GetNextWaypoint()

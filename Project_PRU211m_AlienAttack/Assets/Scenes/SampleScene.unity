@@ -628,7 +628,7 @@ PrefabInstance:
     - target: {fileID: 4492514827873515269, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: waves.Array.data[1].enemy
       value: 
-      objectReference: {fileID: 7655276821126365337, guid: ed71ac98e6832ab41b7c96d0c40d8fd7, type: 3}
+      objectReference: {fileID: 8855303797783834132, guid: fd32cf7eb3e7b324eb0d3ff55ec21b93, type: 3}
     - target: {fileID: 4492514827873515269, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: waves.Array.data[2].count
       value: 5
@@ -636,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 4492514827873515269, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: waves.Array.data[2].enemy
       value: 
-      objectReference: {fileID: 3875137554003869897, guid: e42efab94b4354a4eaacf06b567e6465, type: 3}
+      objectReference: {fileID: 7655276821126365337, guid: ed71ac98e6832ab41b7c96d0c40d8fd7, type: 3}
     - target: {fileID: 4492514827873515270, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: m_RootOrder
       value: 0

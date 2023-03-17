@@ -18,6 +18,10 @@ public class RobotEnemy : MonoBehaviour
     private int worth = 30;
     //public Image healthBar;
 
+    public float MoveSpeed;
+    private WalkPoint walkPoint;
+    private int walkPointIndex;
+
     private bool isDead = false;
 
     // Start is called before the first frame update
@@ -25,6 +29,53 @@ public class RobotEnemy : MonoBehaviour
     {
         health = startHealth;
         speed = startSpeed;
+
+        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+    }
+
+    void Update()
+    {
+        Move();
+        //Vector3 dir = target.position - transform.position;
+        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+        //if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        //{
+        //    GetNextWaypoint();
+        //    //return;
+        //}
+    }
+
+    private void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
+
+        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
+        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+
+        if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
+        {
+            transform.localScale = new Vector3((float)0.2, (float)0.2, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3((float)-0.2, (float)0.2, 0);
+        }
+
+
+
+        if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
+        {
+            if (walkPointIndex < walkPoint.walkpoints.Length - 1)
+            {
+                walkPointIndex++;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     //Update is called once per frame
