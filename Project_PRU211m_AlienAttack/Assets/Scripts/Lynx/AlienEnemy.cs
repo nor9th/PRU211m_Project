@@ -11,23 +11,24 @@ public class AlienEnemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public GameObject deathEffect;
+    //public GameObject deathEffect;
+    //public Animator deathEffect;
 
     public float startHealth = 10;
     private float health;
-    private float worth = 10;
-    public Image healthBar;
+    private int worth = 10;
+    //public Image healthBar;
 
     private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
-        speed = 10;
+        health = startHealth;
+        speed = startSpeed;
 }
 
-    // Update is called once per frame
+    //Update is called once per frame
     //public void TakeDamage(float amount)
     //{
     //    health -= amount;
@@ -40,17 +41,17 @@ public class AlienEnemy : MonoBehaviour
     //    }
     //}
 
-    //void Die()
-    //{
-    //    isDead = true;
+    void Die()
+    {
+        isDead = true;
 
-    //    //PlayerStats.Money += worth;
+        PlayerStats.Money += worth;
 
-    //    GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-    //    Destroy(effect, 5f);
+        //GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Destroy(effect, 5f);
 
-    //    WaveSpawner.EnemiesAlive--;
+        //WaveSpawner.EnemiesAlive--;
 
-    //    Destroy(gameObject);
-    //}
+        Destroy(gameObject);
+    }
 }
