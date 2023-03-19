@@ -412,12 +412,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350a5ff3b032eed48a3e21bdce667938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeInGame: 0
   TimeText: {fileID: 1787852946}
+  CountTime: 0
+  WaveInGame: 0
   WaveText: {fileID: 1832364129}
-  HeartInGame: 10
+  HeartInGame: 1000
   HeartText: {fileID: 217505968}
+  GoldInGame: 100
   GoldText: {fileID: 1265983479}
   gameover: {fileID: 405359799}
+  normal: {fileID: 7123546620894395639, guid: 3dd2461c80671e340be748ba9e4e92c7, type: 3}
+  explo: {fileID: 166627348024664083, guid: 8d240a064bc7c8846a6a894b9fc4abcb, type: 3}
+  GC: {fileID: 1043554204}
+  a: {fileID: 6769621422789207177, guid: c17d8db4318963843a97d9b83532200e, type: 3}
 --- !u!114 &84981574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +527,8 @@ MonoBehaviour:
   count: 0
   gameover: {fileID: 405359799}
   a: {fileID: 6769621422789207177, guid: c17d8db4318963843a97d9b83532200e, type: 3}
+  i: 0
+  GC: {fileID: 0}
 --- !u!1 &93979359
 GameObject:
   m_ObjectHideFlags: 0
@@ -21538,6 +21548,7 @@ MonoBehaviour:
   turretPoint: {x: 0, y: 0, z: 0}
   canClick: 1
   Turret: {fileID: 0}
+  ListTurret: []
 --- !u!4 &1043554205
 Transform:
   m_ObjectHideFlags: 0

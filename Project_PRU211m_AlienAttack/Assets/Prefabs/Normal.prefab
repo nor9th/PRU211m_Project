@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7123546620894395638}
   m_Layer: 7
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5faf0366a53ecc54e84ad5f4689ff216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: 0
   bullet: {fileID: 7786862635668242537, guid: b6d7e4e360e51e5489a2f3bd86800b4d, type: 3}
   Normal_gun: {fileID: 4166920913387419721}
   Spot: {fileID: 7123546619896941048}

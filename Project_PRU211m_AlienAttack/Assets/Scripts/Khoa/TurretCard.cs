@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +29,8 @@ public class TurretCard : MonoBehaviour
     public void PlaceTurret()
     {
         UIManager.UI.CloseTurretShopPanel();
-        Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
+        GameObject a = Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
+        GC.ListTurret.Add(a);
         Debug.Log("turret Create");
         GC.canClick = true;
     }

@@ -12,7 +12,7 @@ public class NormalGun : MonoBehaviour
     private int Atk;
     private int Range;
     private int Gold;
-    private int Level;
+    public int Level;
     private int Reload;
 
     public GameObject bullet;
@@ -80,7 +80,10 @@ public class NormalGun : MonoBehaviour
             }
         }
 	}
-
+    public bool isNormal()
+    {
+        return true;
+    }
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.white;
