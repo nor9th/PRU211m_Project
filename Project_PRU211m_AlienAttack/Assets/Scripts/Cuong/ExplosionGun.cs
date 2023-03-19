@@ -10,7 +10,7 @@ public class ExplosionGun : MonoBehaviour
 	private int Range;
 	private int Gold;
 	public int Level;
-	private int Reload;
+	private float Reload;
 
 	public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;
@@ -77,4 +77,13 @@ public class ExplosionGun : MonoBehaviour
 		Gizmos.color = Color.white;
 		Gizmos.DrawSphere(transform.position, Range);
 	}
+
+    public void UpdateExplo()
+    {
+        Atk = Atk + 2;
+        Range = Range + 1;
+        Reload = (float)(Reload * 0.9);
+        Gold = Gold * 2;
+        Level++;
+    }
 }

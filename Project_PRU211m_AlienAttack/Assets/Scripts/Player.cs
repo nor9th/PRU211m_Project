@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
             
         }
 
-
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         HeartText.text = string.Format("Heart: " + HeartInGame);
         GoldText.text = string.Format("Gold: " + GoldInGame);

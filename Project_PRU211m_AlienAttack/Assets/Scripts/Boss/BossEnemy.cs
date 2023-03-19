@@ -51,7 +51,9 @@ public class BossEnemy : MonoBehaviour
             }
             else
             {
+                Spawner.EnemiesAlive--;
                 Destroy(gameObject);
+                
             }
         }
     }

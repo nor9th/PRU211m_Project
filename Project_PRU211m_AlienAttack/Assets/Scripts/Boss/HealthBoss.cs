@@ -75,6 +75,7 @@ public class HealthBoss : MonoBehaviour
         if (time <= 0)
         {
             Destroy(gameObject);
+            Spawner.EnemiesAlive--;
         }
         if (CurrentHealth == 0)
         {

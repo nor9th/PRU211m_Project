@@ -13,7 +13,7 @@ public class NormalGun : MonoBehaviour
     private int Range;
     private int Gold;
     public int Level;
-    private int Reload;
+    private float Reload;
 
     public GameObject bullet;
     public GameObject Normal_gun; 
@@ -89,5 +89,13 @@ public class NormalGun : MonoBehaviour
 		Gizmos.color = Color.white;
         Gizmos.DrawSphere(transform.position,Range); 
 	}
+    public void UpdateNormal()
+    {
+        Atk = Atk + 1;
+        Range = Range + 1;
+        Reload = (float)(Reload * 0.9);
+        Gold = Gold * 2;
+        Level++;
+    }
 }
 

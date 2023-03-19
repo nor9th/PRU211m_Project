@@ -12,9 +12,9 @@ public class TestGame : MonoBehaviour
     // Start is called before the first frame update
     public float count = 0;
     public GameOver1 gameover;
-    public Scoro a ;
+    public Scoro a;
     public int i = 0;
-   public GameController GC;
+    public GameController GC;
     void Start()
     {
         GC = FindObjectOfType<GameController>();
@@ -32,7 +32,7 @@ public class TestGame : MonoBehaviour
 
             a.setValue(false);
         }
-        
+
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class TestGame : MonoBehaviour
 
         PlayerPrefs.SetInt("Gold", gameObject.GetComponent<Player>().GoldInGame);
 
-     
+
 
         foreach (GameObject g in GC.ListTurret)
         {
@@ -65,19 +65,20 @@ public class TestGame : MonoBehaviour
                 PlayerPrefs.SetFloat("Y" + a.NumTuret, g.transform.position.y);
                 PlayerPrefs.SetInt("Type" + a.NumTuret, 0);
             }
-			if (g.tag == "Explosion")
-			{
-				PlayerPrefs.SetFloat("X" + a.NumTuret, g.transform.position.x);
+            if (g.tag == "Explosion")
+            {
+                PlayerPrefs.SetFloat("X" + a.NumTuret, g.transform.position.x);
                 PlayerPrefs.SetFloat("Y" + a.NumTuret, g.transform.position.y);
                 PlayerPrefs.SetInt("Type" + a.NumTuret, 1);
             }
             a.setNum(1);
-			//i++;
+            //i++;
 
 
-		}
-		SceneManager.LoadScene("Start");
+        }
+        SceneManager.LoadScene("Start");
 
 
 
+    }
 }

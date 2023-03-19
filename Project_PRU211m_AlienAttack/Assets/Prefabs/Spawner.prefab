@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemy: {fileID: 0}
-    count: 0
-    rate: 0
+  - enemy:
+    - {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+    count: 2
+    rate: 1
+  - enemy:
+    - {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+    count: 4
+    rate: 10
   timeBetweenWaves: 5
+  canSpawn: 1
