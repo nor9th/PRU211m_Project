@@ -37,11 +37,11 @@ public class TestGame : MonoBehaviour
         count = count + Time.deltaTime;
 
         //score.text = count.ToString();
-        if (count > 100)
+        //if (count > 100)
 
-        {
-            GameOver();
-        }
+        //{
+        //    GameOver();
+        //}
     }
     public void Saving()
     {
@@ -60,11 +60,6 @@ public class TestGame : MonoBehaviour
         //score.text = count.ToString();
        
     }
-    public void Saving()
-    {
-        PlayerPrefs.SetInt("Heart", gameObject.GetComponent<Player>().HeartInGame);
-        Debug.Log(PlayerPrefs.GetFloat("Heart"));
-        SceneManager.LoadScene("Start");
-    }
+    
     
 }
