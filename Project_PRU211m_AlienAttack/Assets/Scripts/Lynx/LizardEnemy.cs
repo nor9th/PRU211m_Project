@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class AlienEnemy : MonoBehaviour
+public class LizardEnemy : MonoBehaviour
 {
-    public float startSpeed = 10f;
+    public float startSpeed = 20f;
 
     [HideInInspector]
     public float speed;
 
     //public GameObject deathEffect;
-    //public Animator deathEffect;
+    //public Animation deathEffect;
 
-    public float startHealth = 10;
+    public float startHealth = 15;
     private float health;
-    private int worth = 10;
+    private int worth = 15;
     //public Image healthBar;
 
     public float MoveSpeed;
@@ -56,11 +54,11 @@ public class AlienEnemy : MonoBehaviour
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
-            transform.localScale = new Vector3((float)0.3, (float)0.3, 0);
+            transform.localScale = new Vector3((float)1.5, (float)1.5, 0);
         }
         else
         {
-            transform.localScale = new Vector3((float)-0.3, (float)0.3, 0);
+            transform.localScale = new Vector3((float)-1.5, (float)1.5, 0);
         }
 
 
@@ -97,7 +95,7 @@ public class AlienEnemy : MonoBehaviour
 
         PlayerStats.Money += worth;
 
-        //GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Animation effect = (Animation)Instantiate(deathEffect, transform.position, Quaternion.identity);
         //Destroy(effect, 5f);
 
         //WaveSpawner.EnemiesAlive--;

@@ -40,7 +40,7 @@ public class TestGame : MonoBehaviour
     {
         count = count + Time.deltaTime;
 
-      
+
     }
     public void Saving()
     {
@@ -78,9 +78,6 @@ public class TestGame : MonoBehaviour
 		}
 		SceneManager.LoadScene("Start");
 
-
-
-    }
 
 
 }

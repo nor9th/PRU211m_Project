@@ -414,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeInGame: 0
   TimeText: {fileID: 1787852946}
-  CountTime: 0
+
   WaveInGame: 0
   WaveText: {fileID: 1832364129}
   HeartInGame: 1000
@@ -485,7 +485,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &84981577
 RectTransform:
@@ -18982,10 +18982,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4492514827873515269, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4492514827873515269, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1873435005}
@@ -19040,6 +19036,10 @@ PrefabInstance:
     - target: {fileID: 4492514827873515271, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
       propertyPath: m_Name
       value: GameMaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492514827873515271, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748087d19174f144bb7a024e5e287cfb, type: 3}
@@ -27687,22 +27687,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+    - target: {fileID: 0}
       propertyPath: spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
-      propertyPath: bossPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+    - target: {fileID: 0}
+      propertyPath: timeBetweenWaves
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bossPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[0].rate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[1].rate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[2].rate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: bossPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
-    - target: {fileID: 6011585421817374868, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
+    - target: {fileID: 0}
       propertyPath: bossPrefabs.Array.data[1]
       value: 
+      objectReference: {fileID: 8855303797783834132, guid: fd32cf7eb3e7b324eb0d3ff55ec21b93, type: 3}
+    - target: {fileID: 0}
+      propertyPath: bossPrefabs.Array.data[2]
+      value: 
       objectReference: {fileID: 3875137554003869897, guid: e42efab94b4354a4eaacf06b567e6465, type: 3}
+    - target: {fileID: 0}
+      propertyPath: bossPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 7655276821126365337, guid: ed71ac98e6832ab41b7c96d0c40d8fd7, type: 3}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[0].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[0].enemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[1].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[1].enemy
+      value: 
+      objectReference: {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[2].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waves.Array.data[2].enemy
+      value: 
+      objectReference: {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
     - target: {fileID: 6603101034185011409, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -27751,7 +27803,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9686cbed21b3dc34f8ac1b686cfde1f4, type: 3}
 --- !u!1001 &2001894220
 PrefabInstance:
@@ -27763,6 +27816,10 @@ PrefabInstance:
     - target: {fileID: 7248772676881686814, guid: 3494b1525c15b134ebc3f9a71bf84205, type: 3}
       propertyPath: m_Name
       value: START
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248772676881686814, guid: 3494b1525c15b134ebc3f9a71bf84205, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7248772676881686815, guid: 3494b1525c15b134ebc3f9a71bf84205, type: 3}
       propertyPath: m_RootOrder
@@ -27936,6 +27993,10 @@ PrefabInstance:
     - target: {fileID: 6458768812189224028, guid: 0e1fe103e1c12d14ab5d72bebe820df4, type: 3}
       propertyPath: m_Name
       value: END
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458768812189224028, guid: 0e1fe103e1c12d14ab5d72bebe820df4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458768812189224029, guid: 0e1fe103e1c12d14ab5d72bebe820df4, type: 3}
       propertyPath: m_RootOrder
@@ -31835,6 +31896,10 @@ PrefabInstance:
     - target: {fileID: 4476131918552123662, guid: f394e0a3883c5464cb1690a4d65a60a2, type: 3}
       propertyPath: m_Name
       value: Waypoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476131918552123662, guid: f394e0a3883c5464cb1690a4d65a60a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f394e0a3883c5464cb1690a4d65a60a2, type: 3}

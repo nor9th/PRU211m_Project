@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603101034185011414}
-  - component: {fileID: 6011585421817374868}
+  - component: {fileID: 2656310360114539203}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6011585421817374868
+--- !u!114 &2656310360114539203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2198945aba4188c47a3bc16b57ef5d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 5
-  bossPrefabs:
-  - {fileID: 2693591366419490355, guid: f2aeaed821925994a925b0e0c9e3a13d, type: 3}
-  canSpawn: 1
+  waves:
+  - enemy: {fileID: 0}
+    count: 0
+    rate: 0
+  timeBetweenWaves: 5

@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
             CountTime = 0f;
             WaveInGame++;
 
-            HeartInGame -= 5;
+            HeartInGame -= 1;
             for (int i = 0; i < WaveInGame; i++)
             {
                 GoldInGame += (i * 100);

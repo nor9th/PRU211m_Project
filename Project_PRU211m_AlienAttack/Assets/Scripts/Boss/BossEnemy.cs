@@ -34,11 +34,11 @@ public class BossEnemy : MonoBehaviour
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
-            transform.localScale = new Vector3((float)0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)0.6, (float)0.6, 0);
         }
         else
         {
-            transform.localScale = new Vector3((float)-0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)-0.6, (float)0.6, 0);
         }
 
 
