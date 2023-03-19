@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ExplosionGun : MonoBehaviour
 {
-	// Start is called before the first frame update
+    // Start is called before the first frame update
 
-	private int Atk;
-	private int Range;
-	private int Gold;
+    public int Atk;
+    public int Range;
+    public int Gold;
 	public int Level;
-	private float Reload;
+    public float Reload;
 
 	public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;

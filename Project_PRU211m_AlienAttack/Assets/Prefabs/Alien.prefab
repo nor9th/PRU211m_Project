@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 925538696067513029}
   m_Layer: 0
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 10
   speed: 0
-  startHealth: 10
+  startHealth: 30
   MoveSpeed: 3
 --- !u!1001 &6293055579044938856
 PrefabInstance:

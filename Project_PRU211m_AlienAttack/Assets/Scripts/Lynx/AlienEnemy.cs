@@ -73,6 +73,7 @@ public class AlienEnemy : MonoBehaviour
             }
             else
             {
+                Player.Heart--;
                 Destroy(gameObject);
             }
         }
@@ -90,6 +91,16 @@ public class AlienEnemy : MonoBehaviour
     //        Die();
     //    }
     //}
+
+    public void DealDamage(float damage)
+    {
+        startHealth = startHealth - damage;
+        if (startHealth <= 0)
+        {
+            startHealth = 0;
+            Die();
+        }
+    }
 
     void Die()
     {

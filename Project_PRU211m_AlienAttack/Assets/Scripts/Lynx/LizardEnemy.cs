@@ -71,6 +71,7 @@ public class LizardEnemy : MonoBehaviour
             }
             else
             {
+                Player.Heart--;
                 Destroy(gameObject);
             }
         }
@@ -88,6 +89,16 @@ public class LizardEnemy : MonoBehaviour
     //        Die();
     //    }
     //}
+
+    public void DealDamage(float damage)
+    {
+        startHealth = startHealth - damage;
+        if (startHealth <= 0)
+        {
+            startHealth = 0;
+            Die();
+        }
+    }
 
     void Die()
     {

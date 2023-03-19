@@ -52,12 +52,12 @@ public class GameController : MonoBehaviour
                 int level = 0;
                 int gunAtk=0;
                 int gunRange = 0;
-                int gunReload = 0;
+                float gunReload = 0;
                 int gunGold = 0;
                 turretPoint = hit.transform.position;
                 UIManager.UI.TurretShop.SetActive(false);
                 Turret = hit1.gameObject;
-                if (Turret.CompareTag("NormalGun"))
+                if (Turret.CompareTag("Normal"))
                 {
                     NormalGun normalGun = Turret.GetComponent<NormalGun>();
                     level = normalGun.Level;
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
                     gunGold = normalGun.Gold;
 
                 }
-                else if (Turret.CompareTag("ExplosionGun"))
+                else if (Turret.CompareTag("Explosion"))
                 {
                     ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
                     level= explosionGun.Level;
@@ -90,23 +90,25 @@ public class GameController : MonoBehaviour
 
     public void checkUpdate()
     {
-        if (Turret.CompareTag("NormalGun"))
+        if (Turret.CompareTag("Normal"))
         {
             NormalGun normalGun = Turret.GetComponent<NormalGun>();
-            normalGun.Atk = normalGun.Atk + 5;
-            normalGun.Range = normalGun.Range + 5;
+            normalGun.UpdateNormal();
+            //normalGun.Atk = normalGun.Atk + 5;
+            //normalGun.Range = normalGun.Range + 5;
             //normalGun.Reload = normalGun.Reload +5;
-            normalGun.Level = normalGun.Level + 1;
+            //normalGun.Level = normalGun.Level + 1;
             TurretInfo.turretInfo.setInfoText("Level: " + normalGun.Level, "Attack: " + normalGun.Atk, "Reload: " 
                 + normalGun.Reload, "Range: " + normalGun.Range, "Gold: " + normalGun.Gold);
         }
-        else if (Turret.CompareTag("ExplosionGun"))
+        else if (Turret.CompareTag("Explosion"))
         {
             ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
-            explosionGun.Atk = explosionGun.Atk + 5;
-            explosionGun.Range = explosionGun.Range + 5;
+            explosionGun.UpdateExplo();
+            //explosionGun.Atk = explosionGun.Atk + 5;
+            //explosionGun.Range = explosionGun.Range + 5;
             //explosionGun.Reload = explosionGun.Reload + 5;
-            explosionGun.Level = explosionGun.Level + 1;
+            //explosionGun.Level = explosionGun.Level + 1;
             TurretInfo.turretInfo.setInfoText("Level: " + explosionGun.Level, "Attack: " + explosionGun.Atk, "Reload: " 
                 + explosionGun.Reload, "Range: " + explosionGun.Range, "Gold: " + explosionGun.Gold);
         }

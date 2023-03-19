@@ -11,11 +11,13 @@ public class BossEnemy : MonoBehaviour
     private WalkPoint walkPoint;
 
     private int walkPointIndex;
+    //[SerializeField] private GameObject target;
 
     // Start is called before the first frame update
     void Start()
     {
         walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        //walkPoint.walkpoints[ = target.transform;
     }
 
     // Update is called once per frame
@@ -51,10 +53,16 @@ public class BossEnemy : MonoBehaviour
             }
             else
             {
-                Spawner.EnemiesAlive--;
-                Destroy(gameObject);
-                
+
+                MinusHeart();
+                return;
             }
         }
+    }
+
+    public void MinusHeart()
+    {
+        Player.Heart--;
+        Destroy(gameObject);
     }
 }

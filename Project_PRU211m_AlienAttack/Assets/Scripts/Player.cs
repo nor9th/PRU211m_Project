@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ public class Player : MonoBehaviour
     public int WaveInGame;
     public Text WaveText;
 
-    public int HeartInGame = 1000;
+    public static int Heart;
+    public int HeartInGame;
     public Text HeartText;
 
-
-    public int GoldInGame = 100;
+    public static int Gold;
+    public int GoldInGame;
     public Text GoldText;
 
     private bool isPause = false;
@@ -33,6 +35,8 @@ public class Player : MonoBehaviour
     public Scoro a;
     void Start()
     {
+        Heart = HeartInGame;
+        Gold = GoldInGame;
         GC = FindObjectOfType<GameController>();
         TimeInGame = 0f;
         CountTime = 0f;
@@ -48,7 +52,7 @@ public class Player : MonoBehaviour
             CountTime = 0f;
             WaveInGame++;
 
-            HeartInGame -= 1;
+            //HeartInGame -= 1;
             for (int i = 0; i < WaveInGame; i++)
             {
                 GoldInGame += (i * 100);
@@ -57,13 +61,13 @@ public class Player : MonoBehaviour
         }
 
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-        HeartText.text = string.Format("Heart: " + HeartInGame);
-        GoldText.text = string.Format("Gold: " + GoldInGame);
+        HeartText.text = string.Format("Heart: " + Heart);
+        GoldText.text = string.Format("Gold: " + Gold);
         WaveText.text = string.Format("Wave: " + WaveInGame);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
 
 
-        if (HeartInGame <=0)
+        if (Heart <= 0)
         {
             GameOver();
         }
@@ -94,8 +98,7 @@ public class Player : MonoBehaviour
             Debug.Log(a.NumTuret+"abc");
          }
 
-}
-
+    }
 
     private void Spawn(int s)
     {
@@ -118,7 +121,5 @@ public class Player : MonoBehaviour
 
 
         }
-
-       
     }
 }

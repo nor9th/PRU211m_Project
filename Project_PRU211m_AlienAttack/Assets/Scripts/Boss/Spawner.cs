@@ -7,15 +7,14 @@ using UnityEngine.Pool;
 public class Spawner : MonoBehaviour
 {
     public Wave[] waves;
-    public float timeBetweenWaves = 5f;
+
+    public float timeBetweenWaves;
     private float countdown = 10f;
     private int waveIndex = 0;
 
-    public static int EnemiesAlive = 0;
-
     //[SerializeField] private float spawnRate = 1f;
     //[SerializeField] private GameObject[] bossPrefabs;
-    [SerializeField] private bool canSpawn = true;
+    //[SerializeField] private bool canSpawn = true;
 
     private void Start()
     {
@@ -23,17 +22,15 @@ public class Spawner : MonoBehaviour
         //StartCoroutine(SpawnWave());
     }
 
+    int count = 1;
     void Update()
     {
-        if (EnemiesAlive > 0)
-        {
-            return;
-        }
-
+        
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnEnemy());
-            countdown = timeBetweenWaves;
+            countdown = timeBetweenWaves * count;
+            count++;
             return;
         }
         countdown -= Time.deltaTime;
@@ -63,9 +60,8 @@ public class Spawner : MonoBehaviour
             GameObject bossToSpawn = wave.enemy[rand];
 
             Instantiate(bossToSpawn, transform.position, Quaternion.identity);
-            EnemiesAlive++;
 
-            yield return new WaitForSeconds(1f / wave.rate);
+            yield return new WaitForSeconds(wave.rate);
         }
         waveIndex++;
 

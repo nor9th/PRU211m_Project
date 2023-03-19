@@ -138,8 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4411912243144961722}
   barPosition: {fileID: 6914474136493348199}
-  initialHealth: 10
-  maxHealth: 10
+  initialHealth: 50
+  maxHealth: 50
   audio: {fileID: 669966272683962370}
 --- !u!61 &3655565349076884936
 BoxCollider2D:

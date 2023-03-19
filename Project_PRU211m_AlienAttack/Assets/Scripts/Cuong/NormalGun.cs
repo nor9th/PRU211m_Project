@@ -9,11 +9,11 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class NormalGun : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int Atk;
-    private int Range;
-    private int Gold;
+    public int Atk;
+    public int Range;
+    public int Gold;
     public int Level;
-    private float Reload;
+    public float Reload;
 
     public GameObject bullet;
     public GameObject Normal_gun; 

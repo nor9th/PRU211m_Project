@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3684349754372577948}
   m_Layer: 0
   m_Name: Lizard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 20
   speed: 0
-  startHealth: 15
+  startHealth: 20
   MoveSpeed: 4
 --- !u!1001 &2285314423106383165
 PrefabInstance:

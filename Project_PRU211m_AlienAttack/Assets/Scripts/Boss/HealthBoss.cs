@@ -36,10 +36,6 @@ public class HealthBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.P))
-        {
-            DealDamage(5f);
-        }*/
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth/maxHealth, Time.deltaTime * 10f);
     }
 
@@ -74,8 +70,8 @@ public class HealthBoss : MonoBehaviour
         }
         if (time <= 0)
         {
+            Player.Gold += 10;
             Destroy(gameObject);
-            Spawner.EnemiesAlive--;
         }
         if (CurrentHealth == 0)
         {
