@@ -9,7 +9,7 @@ public class ExplosionGun : MonoBehaviour
 	private int Atk;
 	private int Range;
 	private int Gold;
-	private int Level;
+	public int Level;
 	private int Reload;
 
 	public GameObject Explosion_bullet;
@@ -68,8 +68,11 @@ public class ExplosionGun : MonoBehaviour
         }
 		
 	}
-
-	private void OnDrawGizmos()
+    public bool isNormal()
+    {
+        return false;
+    }
+    private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.white;
 		Gizmos.DrawSphere(transform.position, Range);

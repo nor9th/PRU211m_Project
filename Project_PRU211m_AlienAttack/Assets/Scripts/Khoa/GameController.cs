@@ -12,8 +12,8 @@ public class GameController : MonoBehaviour
     public LayerMask Gunlayer;
     public Vector3 turretPoint;
     public bool canClick = true;
-    
     public GameObject Turret;
+    public List<GameObject> ListTurret;
 
     void Start()
     {

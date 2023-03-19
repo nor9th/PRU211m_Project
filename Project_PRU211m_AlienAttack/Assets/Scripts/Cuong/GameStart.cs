@@ -10,6 +10,7 @@ public class GameStart : MonoBehaviour
     public void Startgame()
     {
         a.setValue(false);
+        a.NumTuret = 0;
         SceneManager.LoadScene("Game Scene");
 
     }
