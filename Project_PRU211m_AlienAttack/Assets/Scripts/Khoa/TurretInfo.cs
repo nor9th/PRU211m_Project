@@ -25,7 +25,7 @@ public class TurretInfo : MonoBehaviour
         
     }
 
-    public void setInfoText(string txt,string atk,string reload, string range, string gold, string upgradeGold, string sellGold)
+    public void setInfoText(string txt, string atk, string reload, string range, string gold, string upgradeGold, string sellGold)
     {
         if (Level != null)
         {
@@ -47,7 +47,7 @@ public class TurretInfo : MonoBehaviour
         {
             Gold.text = gold;
         }
-        if(upgradeGold != null)
+        if (upgradeGold != null)
         {
             UpgradeGold.text = upgradeGold;
         }

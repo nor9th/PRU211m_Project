@@ -11,11 +11,13 @@ public class BossEnemy : MonoBehaviour
     private WalkPoint walkPoint;
 
     private int walkPointIndex;
+    //[SerializeField] private GameObject target;
 
     // Start is called before the first frame update
     void Start()
     {
         walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        //walkPoint.walkpoints[ = target.transform;
     }
 
     // Update is called once per frame
@@ -34,11 +36,11 @@ public class BossEnemy : MonoBehaviour
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
-            transform.localScale = new Vector3((float)0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)0.6, (float)0.6, 0);
         }
         else
         {
-            transform.localScale = new Vector3((float)-0.5, (float)0.5, 0);
+            transform.localScale = new Vector3((float)-0.6, (float)0.6, 0);
         }
 
 
@@ -51,8 +53,16 @@ public class BossEnemy : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+
+                MinusHeart();
+                return;
             }
         }
+    }
+
+    public void MinusHeart()
+    {
+        Player.Heart--;
+        Destroy(gameObject);
     }
 }

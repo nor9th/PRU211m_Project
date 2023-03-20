@@ -10,8 +10,6 @@ public class NormalBullet : MonoBehaviour
 	private Vector3 movepoint ;
 	private GameObject target ;
 
-
-
 	private int atk; 
     void Start()
     {
@@ -40,9 +38,34 @@ public class NormalBullet : MonoBehaviour
 	{
 		if (collision.tag == "Enemy")
 		{
-			//collision.GetComponent<TestEnemy>().health--;
-			collision.GetComponent<HealthBoss>().DealDamage(5f);
-            Destroy(gameObject);
+			switch (collision.name)
+			{
+				case ("Alien(Clone)"):
+				{
+					collision.GetComponent<AlienEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+				}
+                case ("Lizard(Clone)"):
+                    {
+                        collision.GetComponent<LizardEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case ("Robot(Clone)"):
+                    {
+                        collision.GetComponent<RobotEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case ("Boss(Clone)"):
+                    {
+                        collision.GetComponent<HealthBoss>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+            }
+            
 		}
 	}
 

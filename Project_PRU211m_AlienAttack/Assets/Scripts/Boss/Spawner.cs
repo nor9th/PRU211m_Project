@@ -6,17 +6,38 @@ using UnityEngine.Pool;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate = 1f;
-    [SerializeField] private GameObject[] bossPrefabs;
-    [SerializeField] private bool canSpawn = true;
+    public Wave[] waves;
 
-    // Start is called before the first frame update
+    public float timeBetweenWaves;
+    private float countdown = 10f;
+    private int waveIndex = 0;
+
+    //[SerializeField] private float spawnRate = 1f;
+    //[SerializeField] private GameObject[] bossPrefabs;
+    //[SerializeField] private bool canSpawn = true;
+
     private void Start()
     {
-        StartCoroutine(BossSpawner());
+        //StartCoroutine(BossSpawner());
+        //StartCoroutine(SpawnWave());
     }
 
-    private IEnumerator BossSpawner()
+    int count = 1;
+    void Update()
+    {
+        
+        if (countdown <= 0f)
+        {
+            StartCoroutine(SpawnEnemy());
+            countdown = timeBetweenWaves * count;
+            count++;
+            return;
+        }
+        countdown -= Time.deltaTime;
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+    }
+
+    /*private IEnumerator BossSpawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
 
@@ -28,5 +49,21 @@ public class Spawner : MonoBehaviour
 
             Instantiate(bossToSpawn, transform.position, Quaternion.identity);
         }
+    }*/
+
+    private IEnumerator SpawnEnemy()
+    {
+        Wave wave = waves[waveIndex];
+        for (int i = 0; i < wave.count; i++)
+        {
+            int rand = UnityEngine.Random.Range(0, wave.enemy.Length);
+            GameObject bossToSpawn = wave.enemy[rand];
+
+            Instantiate(bossToSpawn, transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(wave.rate);
+        }
+        waveIndex++;
+
     }
 }

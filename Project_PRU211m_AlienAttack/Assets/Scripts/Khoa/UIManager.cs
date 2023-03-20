@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public GameObject TurretShop;
     public GameObject TurretInfo;
     public GameController GC;
-    public GameObject upgradeButton;
 
     public void Awake()
     {

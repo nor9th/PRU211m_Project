@@ -11,23 +11,76 @@ public class AlienEnemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public GameObject deathEffect;
+    //public GameObject deathEffect;
+    //public Animator deathEffect;
 
     public float startHealth = 10;
     private float health;
-    private float worth = 10;
-    public Image healthBar;
+    private int worth = 10;
+    
+    [SerializeField] private GameObject healthBarPrefab;
+    [SerializeField] private Transform barPosition;
+    public float MoveSpeed;
+    private WalkPoint walkPoint;
+    private int walkPointIndex;
 
     private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
-        speed = 10;
-}
+        health = startHealth;
+        speed = startSpeed;
+        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+    }
 
-    // Update is called once per frame
+    void Update()
+    {
+        Move();
+        //Vector3 dir = target.position - transform.position;
+        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+        //if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        //{
+        //    GetNextWaypoint();
+        //    //return;
+        //}
+    }
+
+    private void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
+
+        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
+        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+
+        if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
+        {
+            transform.localScale = new Vector3((float)0.3, (float)0.3, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3((float)-0.3, (float)0.3, 0);
+        }
+
+
+
+        if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
+        {
+            if (walkPointIndex < walkPoint.walkpoints.Length - 1)
+            {
+                walkPointIndex++;
+            }
+            else
+            {
+                Player.Heart--;
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    //Update is called once per frame
     //public void TakeDamage(float amount)
     //{
     //    health -= amount;
@@ -40,17 +93,20 @@ public class AlienEnemy : MonoBehaviour
     //    }
     //}
 
-    //void Die()
-    //{
-    //    isDead = true;
+    public void DealDamage(float damage)
+    {
+        startHealth = startHealth - damage;
+        if (startHealth <= 0)
+        {
+            startHealth = 0;
+            Die();
+        }
+    }
 
-     //   PlayerStats.Money += worth;
-
-    //    GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-    //    Destroy(effect, 5f);
-
-    //    WaveSpawner.EnemiesAlive--;
-
-    //    Destroy(gameObject);
-    //}
+    void Die()
+    {
+        isDead = true;
+        Player.Gold += 10;
+        Destroy(gameObject);
+    }
 }

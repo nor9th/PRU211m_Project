@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7655276821126365338}
   - component: {fileID: 7655276821126365339}
   - component: {fileID: -1339715864369001080}
-  - component: {fileID: 3985133144827881491}
+  - component: {fileID: -3684349754372577948}
   m_Layer: 0
   m_Name: Lizard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7655276821126365337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -2.2, z: -0.25243843}
+  m_LocalPosition: {x: -14.2971, y: 1.7868, z: -0.25243843}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 3b37908bf0cd9874fbe7c130c89be343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &3985133144827881491
+--- !u!114 &-3684349754372577948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,10 +143,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7655276821126365337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e8fc05456e16a44a934c27839aa8048, type: 3}
+  m_Script: {fileID: 11500000, guid: d9a7c1cc9b3877c48b452373d534f6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  startSpeed: 20
+  speed: 0
+  startHealth: 20
+  barPosition: {fileID: 5008689567974210646, guid: 6202835c83ad7d3409a3f393d73dc655, type: 3}
+  healthBar: {fileID: 0}
+  MoveSpeed: 4
 --- !u!1001 &2285314423106383165
 PrefabInstance:
   m_ObjectHideFlags: 0

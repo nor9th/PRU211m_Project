@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public Transform enemyPrefab;
+    //public Transform enemyPrefab;
     public float timeBetweenWaves = 5f;
     private float countdown = 10f;
     public Text waveCountdownText;
@@ -57,7 +57,7 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy(wave.enemy);
+            //SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
 

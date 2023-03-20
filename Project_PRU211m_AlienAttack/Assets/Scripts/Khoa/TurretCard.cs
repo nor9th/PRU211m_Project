@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,23 +28,15 @@ public class TurretCard : MonoBehaviour
 
     public void PlaceTurret()
     {
-<<<<<<< Updated upstream
         UIManager.UI.CloseTurretShopPanel();
-        Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
-        Debug.Log("turret Create");
-        GC.canClick = true;
-=======
-        Debug.Log(PlayerStats.Money);
-        if (int.Parse(turretCost.text) <= Player.player.GoldInGame)
+        if (int.Parse(turretCost.text) <= Player.Gold)
         {
             UIManager.UI.CloseTurretShopPanel();
             GameObject a = Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
             GC.ListTurret.Add(a);
-            Debug.Log("turret Create");
             GC.canClick = true;
-            Player.player.GoldInGame = Player.player.GoldInGame - int.Parse(turretCost.text);
+            Player.Gold = Player.Gold - int.Parse(turretCost.text);
         }
-        
->>>>>>> Stashed changes
+
     }
 }

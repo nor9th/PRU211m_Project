@@ -13,13 +13,10 @@ public class NormalGun : MonoBehaviour
     public int Range;
     public int Gold;
     public int Level;
-<<<<<<< Updated upstream
-    public int Reload;
-=======
     public float Reload;
     public int upgradeGold;
     public int sellGold;
->>>>>>> Stashed changes
+    public AudioSource aus;
 
     public GameObject bullet;
     public GameObject Normal_gun; 
@@ -55,41 +52,50 @@ public class NormalGun : MonoBehaviour
             {
                 if (hit[i].tag == "Enemy" && hit.Length >= 1)
                 {
-                    CurrentEnemy = hit[i].gameObject;
-                }
-            }
-        }
-        if (Vector3.Distance(transform.position, CurrentEnemy.transform.position) <= Range)
-        {
-            Vector2 lookDir = CurrentEnemy.transform.position - transform.position;
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
-            if (counter > Reload)
-            {
-                GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
-                if(CurrentEnemy == null)
-                {
-                    Destroy(obj.GetComponent<NormalBullet>());
 
-				}
-                obj.GetComponent<NormalBullet>().gun(Atk, CurrentEnemy.gameObject);
-                counter = 0;
+                    CurrentEnemy = hit[i].gameObject;
+
+                  
+                }
             }
         }
         else
         {
-            CurrentEnemy = null;
+            if (Vector3.Distance(transform.position, CurrentEnemy.transform.position) <= Range)
+            {
+                Vector2 lookDir = CurrentEnemy.transform.position - transform.position;
+                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+                if (counter > Reload)
+                {
+                    GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
+                    aus.Play();
+                    if (CurrentEnemy == null)
+                    {
+                        Destroy(obj.GetComponent<NormalBullet>());
+                        
 
-		}
+                    }
+                    obj.GetComponent<NormalBullet>().gun(Atk, CurrentEnemy.gameObject);
+                    counter = 0;
+                }
+            }
+            else
+            {
+                CurrentEnemy = null;
+
+            }
+        }
 	}
-
+    public bool isNormal()
+    {
+        return true;
+    }
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.white;
         Gizmos.DrawSphere(transform.position,Range); 
 	}
-<<<<<<< Updated upstream
-=======
     public void UpdateNormal()
     {
         Level++;
@@ -102,6 +108,5 @@ public class NormalGun : MonoBehaviour
         upgradeGold = upgradeGold + 30;
         sellGold = sellGold + 10;
     }
->>>>>>> Stashed changes
 }
 

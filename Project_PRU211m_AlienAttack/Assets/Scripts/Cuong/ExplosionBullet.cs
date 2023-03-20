@@ -48,12 +48,39 @@ public class ExplosionBullet : MonoBehaviour
 	{
         Collider2D[] Enemy = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), range);
 		for (int i = 0; i < Enemy.Length; i++){
-			if (Enemy[i].tag=="Enemy") {
+            if (Enemy[i].tag == "Enemy")
+            {
+                switch (Enemy[i].name)
+                {
+                    case ("Alien(Clone)"):
+                        {
+                            Enemy[i].GetComponent<AlienEnemy>().DealDamage(atk);
+                            Destroy(gameObject);
+                            break;
+                        }
+                    case ("Lizard(Clone)"):
+                        {
+                            Enemy[i].GetComponent<LizardEnemy>().DealDamage(atk);
+                            Destroy(gameObject);
+                            break;
+                        }
+                    case ("Robot(Clone)"):
+                        {
+                            Enemy[i].GetComponent<RobotEnemy>().DealDamage(atk);
+                            Destroy(gameObject);
+                            break;
+                        }
+                    case ("Boss(Clone)"):
+                        {
+                            Enemy[i].GetComponent<HealthBoss>().DealDamage(atk);
+                            Destroy(gameObject);
+                            break;
+                        }
+                }
 
-				Enemy[i].GetComponent<HealthBoss>().DealDamage(atk);
-				Destroy(gameObject);
-			}
-		}
+            }
+
+        }
 
     }
 

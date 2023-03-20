@@ -1,38 +1,43 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private float TimeInGame;
+
+    public float TimeInGame;
     public Text TimeText;
 
-    private float CountTime;
+    public float CountTime;
 
-    private int WaveInGame;
+    public int WaveInGame;
     public Text WaveText;
 
-    private int HeartInGame = 10;
+    public static int Heart;
+    public int HeartInGame;
     public Text HeartText;
 
-    private int GoldInGame = 100;
+    public static int Gold;
+    public int GoldInGame;
     public Text GoldText;
 
     private bool isPause = false;
+    public static Player player;
 
-
-<<<<<<< Updated upstream
-=======
     public GameOver1 gameover;
     public GameObject normal;
     public GameObject explo;
     public GameController GC;
     public Scoro a;
-    public static Player player;
->>>>>>> Stashed changes
     void Start()
     {
+        Heart = HeartInGame;
+        Gold = GoldInGame;
+        GC = FindObjectOfType<GameController>();
         TimeInGame = 0f;
         CountTime = 0f;
     }
@@ -46,7 +51,8 @@ public class Player : MonoBehaviour
         {
             CountTime = 0f;
             WaveInGame++;
-            HeartInGame -= 1;
+
+            //HeartInGame -= 1;
             for (int i = 0; i < WaveInGame; i++)
             {
                 GoldInGame += (i * 100);
@@ -55,10 +61,16 @@ public class Player : MonoBehaviour
         }
 
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-        HeartText.text = string.Format("Wave: " + HeartInGame);
-        GoldText.text = string.Format("Wave: " + GoldInGame);
+        HeartText.text = string.Format("Heart: " + Heart);
+        GoldText.text = string.Format("Gold: " + Gold);
         WaveText.text = string.Format("Wave: " + WaveInGame);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
+
+
+        if (Heart <= 0)
+        {
+            GameOver();
+        }
     }
 
     void PauseGame()
@@ -68,12 +80,25 @@ public class Player : MonoBehaviour
             isPause = true;
             TimeInGame = Time.deltaTime;
             TimeInGame = Time.timeScale;
-<<<<<<< Updated upstream
-=======
 
         }
     }
-    
+
+    public void TimeIncrease()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+        }
+        else if (Time.timeScale == 2)
+        {
+            Time.timeScale = 4;
+        }
+        else if (Time.timeScale == 4)
+        {
+            Time.timeScale = 1;
+        }
+    }
     public void GameOver()
     {
         gameObject.SetActive(false);
@@ -89,8 +114,7 @@ public class Player : MonoBehaviour
             Debug.Log(a.NumTuret+"abc");
          }
 
-}
-
+    }
 
     private void Spawn(int s)
     {
@@ -104,8 +128,17 @@ public class Player : MonoBehaviour
         {
           GameObject sq =  Instantiate(normal, pos, Quaternion.identity); 
          //   sq.GetComponent<NormalGun>().Level = Level;
->>>>>>> Stashed changes
         }
+		if (type == 1)
+
+		{
+			GameObject sq = Instantiate(explo, pos, Quaternion.identity);
+           // sq.GetComponent<ExplosionGun>().Level = Level;
+
+
+        }
+
+
     }
 
     public void Awake()

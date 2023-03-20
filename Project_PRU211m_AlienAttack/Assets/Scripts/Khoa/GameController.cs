@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +13,14 @@ public class GameController : MonoBehaviour
     public Vector3 turretPoint;
     public bool canClick = true;
     public GameObject Turret;
+    public List<GameObject> ListTurret;
 
 
     void Start()
     {
-        
+
     }
-        
+
     // Update is called once per frame
     void Update()
     {
@@ -45,12 +45,12 @@ public class GameController : MonoBehaviour
                 turretPoint = hit.transform.position;
                 UIManager.UI.TurretShop.SetActive(true);
                 canClick = false;
-                
+
             }
             if (hit != null && hit1 != null)
             {
                 int level = 0;
-                int gunAtk=0;
+                int gunAtk = 0;
                 int gunRange = 0;
                 float gunReload = 0;
                 int gunGold = 0;
@@ -68,16 +68,17 @@ public class GameController : MonoBehaviour
                     gunReload = normalGun.Reload;
                     gunGold = normalGun.Gold;
                     upgradeGold = normalGun.upgradeGold;
-                    sellGold= normalGun.sellGold;
+                    sellGold = normalGun.sellGold;
+
                 }
                 else if (Turret.CompareTag("Explosion"))
                 {
                     ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
-                    level= explosionGun.Level;
+                    level = explosionGun.Level;
                     gunAtk = explosionGun.Atk;
                     gunRange = explosionGun.Range;
                     gunReload = explosionGun.Reload;
-                    gunGold= explosionGun.Gold;
+                    gunGold = explosionGun.Gold;
                     upgradeGold = explosionGun.upgradeGold;
                     sellGold = explosionGun.sellGold;
                 }
@@ -87,9 +88,10 @@ public class GameController : MonoBehaviour
                 }
                 UIManager.UI.TurretInfo.SetActive(true);
                 canClick = false;
-                TurretInfo.turretInfo.setInfoText("Level: "+ level,"Attack: " + gunAtk,
-                    "Reload: " + gunReload,"Range: "+ gunRange,"Gold: " + gunGold,
+                TurretInfo.turretInfo.setInfoText("Level: " + level, "Attack: " + gunAtk,
+                    "Reload: " + gunReload, "Range: " + gunRange, "Gold: " + gunGold,
                     "Upgrade: " + upgradeGold, "Sell: " + sellGold);
+
             }
         }
     }
@@ -98,40 +100,38 @@ public class GameController : MonoBehaviour
     {
         if (Turret.CompareTag("Normal"))
         {
-
             NormalGun normalGun = Turret.GetComponent<NormalGun>();
-            if (normalGun.upgradeGold <= Player.player.GoldInGame) 
+            if (normalGun.upgradeGold <= Player.Gold)
             {
-                Player.player.GoldInGame = Player.player.GoldInGame - normalGun.upgradeGold;
+                Player.Gold = Player.Gold - normalGun.upgradeGold;
                 normalGun.UpdateNormal();
                 //normalGun.Atk = normalGun.Atk + 5;
                 //normalGun.Range = normalGun.Range + 5;
-                ////normalGun.Reload = normalGun.Reload +5;
+                //normalGun.Reload = normalGun.Reload +5;
                 //normalGun.Level = normalGun.Level + 1;
                 TurretInfo.turretInfo.setInfoText("Level: " + normalGun.Level, "Attack: " + normalGun.Atk,
-                    "Reload: " + normalGun.Reload, "Range: " + normalGun.Range, "Gold: " + normalGun.Gold,
-                    "Upgrade: " + normalGun.upgradeGold, "Sell: " + normalGun.sellGold);
+                        "Reload: " + normalGun.Reload, "Range: " + normalGun.Range, "Gold: " + normalGun.Gold,
+                        "Upgrade: " + normalGun.upgradeGold, "Sell: " + normalGun.sellGold);
             }
             
-            
         }
-        else if (Turret.CompareTag("Explosion"))
+        if (Turret.CompareTag("Explosion"))
         {
             ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
-            if (explosionGun.upgradeGold <= Player.player.GoldInGame)
+            if (explosionGun.upgradeGold <= Player.Gold)
             {
-                Player.player.GoldInGame = Player.player.GoldInGame - explosionGun.upgradeGold;
+                Player.Gold = Player.Gold - explosionGun.upgradeGold;
                 explosionGun.UpdateExplo();
                 //explosionGun.Atk = explosionGun.Atk + 5;
                 //explosionGun.Range = explosionGun.Range + 5;
-                ////explosionGun.Reload = explosionGun.Reload + 5;
+                //explosionGun.Reload = explosionGun.Reload + 5;
                 //explosionGun.Level = explosionGun.Level + 1;
                 TurretInfo.turretInfo.setInfoText("Level: " + explosionGun.Level, "Attack: " + explosionGun.Atk,
-                    "Reload: " + explosionGun.Reload, "Range: " + explosionGun.Range, "Gold: " + explosionGun.Gold,
-                    "Upgrade: " + explosionGun.upgradeGold, "Sell: " + explosionGun.sellGold);
+                        "Reload: " + explosionGun.Reload, "Range: " + explosionGun.Range, "Gold: " + explosionGun.Gold,
+                        "Upgrade: " + explosionGun.upgradeGold, "Sell: " + explosionGun.sellGold);
             }
-                
         }
+
     }
 
     public void SellTurret()
@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
         if (Turret.CompareTag("Normal"))
         {
             NormalGun normalGun = Turret.GetComponent<NormalGun>();
-            Player.player.GoldInGame = Player.player.GoldInGame + normalGun.sellGold;
+            Player.Gold = Player.Gold + normalGun.sellGold;
             Destroy(Turret);
             UIManager.UI.TurretInfo.SetActive(false);
             canClick = true;
@@ -147,12 +147,11 @@ public class GameController : MonoBehaviour
         else if (Turret.CompareTag("Explosion"))
         {
             ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
-            Player.player.GoldInGame = Player.player.GoldInGame + explosionGun.sellGold;
+            Player.Gold = Player.Gold + explosionGun.sellGold;
             Destroy(Turret);
             UIManager.UI.TurretInfo.SetActive(false);
             canClick = true;
         }
     }
+}    
 
-
-}
