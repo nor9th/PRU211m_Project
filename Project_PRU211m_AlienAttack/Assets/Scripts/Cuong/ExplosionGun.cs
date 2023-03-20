@@ -11,8 +11,11 @@ public class ExplosionGun : MonoBehaviour
     public int Gold;
 	public int Level;
     public float Reload;
+    public int upgradeGold;
+    public int sellGold;
+    public AudioSource aus;
 
-	public GameObject Explosion_bullet;
+    public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;
 	public UnityEngine.Transform Spot;
 	public float counter = 0;
@@ -26,7 +29,9 @@ public class ExplosionGun : MonoBehaviour
 		Reload = 2;
 		Gold = 30;
 		Level = 1;
-	}
+        upgradeGold = 50;
+        sellGold = 30;
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -57,6 +62,7 @@ public class ExplosionGun : MonoBehaviour
                 if (counter > Reload)
                 {
                     GameObject obj = Instantiate<GameObject>(Explosion_bullet, Spot.position, Explosion_gun.transform.rotation);
+                    aus.Play();
                     obj.GetComponent<ExplosionBullet>().gun(Atk, CurrentEnemy.gameObject);
                     counter = 0;
                 }
@@ -80,10 +86,14 @@ public class ExplosionGun : MonoBehaviour
 
     public void UpdateExplo()
     {
-        Atk = Atk + 2;
-        Range = Range + 1;
-        Reload = (float)(Reload * 0.9);
-        Gold = Gold * 2;
         Level++;
+        Atk = Atk + 2;
+        if (Level % 5 == 0)
+        {
+            Range = Range + 1;
+            Reload = (float)(Reload * 0.9);
+        }
+        upgradeGold = upgradeGold + 50;
+        sellGold = sellGold + 30;
     }
 }

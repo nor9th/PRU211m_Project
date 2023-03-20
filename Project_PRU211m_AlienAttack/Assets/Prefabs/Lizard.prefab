@@ -149,6 +149,8 @@ MonoBehaviour:
   startSpeed: 20
   speed: 0
   startHealth: 20
+  barPosition: {fileID: 5008689567974210646, guid: 6202835c83ad7d3409a3f393d73dc655, type: 3}
+  healthBar: {fileID: 0}
   MoveSpeed: 4
 --- !u!1001 &2285314423106383165
 PrefabInstance:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LizardEnemy : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class LizardEnemy : MonoBehaviour
     public float startHealth = 15;
     private float health;
     private int worth = 15;
-    //public Image healthBar;
+    [SerializeField] private Transform barPosition;
+    public Image healthBar;
 
     public float MoveSpeed;
     private WalkPoint walkPoint;
@@ -104,12 +106,7 @@ public class LizardEnemy : MonoBehaviour
     {
         isDead = true;
 
-        PlayerStats.Money += worth;
-
-        //Animation effect = (Animation)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 5f);
-
-        //WaveSpawner.EnemiesAlive--;
+        Player.Gold += 10;
 
         Destroy(gameObject);
     }

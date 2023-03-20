@@ -38,11 +38,34 @@ public class NormalBullet : MonoBehaviour
 	{
 		if (collision.tag == "Enemy")
 		{
-			collision.GetComponent<HealthBoss>().DealDamage(atk);
-			collision.GetComponent<AlienEnemy>().DealDamage(atk);
-			collision.GetComponent<LizardEnemy>().DealDamage(atk);
-			collision.GetComponent<RobotEnemy>().DealDamage(atk);
-            Destroy(gameObject);
+			switch (collision.name)
+			{
+				case ("Alien(Clone)"):
+				{
+					collision.GetComponent<AlienEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+				}
+                case ("Lizard(Clone)"):
+                    {
+                        collision.GetComponent<LizardEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case ("Robot(Clone)"):
+                    {
+                        collision.GetComponent<RobotEnemy>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case ("Boss(Clone)"):
+                    {
+                        collision.GetComponent<HealthBoss>().DealDamage(atk);
+                        Destroy(gameObject);
+                        break;
+                    }
+            }
+            
 		}
 	}
 

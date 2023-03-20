@@ -29,9 +29,14 @@ public class TurretCard : MonoBehaviour
     public void PlaceTurret()
     {
         UIManager.UI.CloseTurretShopPanel();
-        GameObject a = Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
-        GC.ListTurret.Add(a);
-        Debug.Log("turret Create");
-        GC.canClick = true;
+        if (int.Parse(turretCost.text) <= Player.Gold)
+        {
+            UIManager.UI.CloseTurretShopPanel();
+            GameObject a = Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
+            GC.ListTurret.Add(a);
+            GC.canClick = true;
+            Player.Gold = Player.Gold - int.Parse(turretCost.text);
+        }
+
     }
 }

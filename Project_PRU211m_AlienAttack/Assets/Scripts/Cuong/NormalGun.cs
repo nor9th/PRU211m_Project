@@ -14,6 +14,9 @@ public class NormalGun : MonoBehaviour
     public int Gold;
     public int Level;
     public float Reload;
+    public int upgradeGold;
+    public int sellGold;
+    public AudioSource aus;
 
     public GameObject bullet;
     public GameObject Normal_gun; 
@@ -28,7 +31,9 @@ public class NormalGun : MonoBehaviour
         Range = 10;
         Reload = 2;
         Gold = 30; 
-        Level= 1;   
+        Level= 1;
+        upgradeGold = 30;
+        sellGold = 20;
     }
 
     // Update is called once per frame
@@ -64,9 +69,11 @@ public class NormalGun : MonoBehaviour
                 if (counter > Reload)
                 {
                     GameObject obj = Instantiate<GameObject>(bullet, Spot.position, Normal_gun.transform.rotation);
+                    aus.Play();
                     if (CurrentEnemy == null)
                     {
                         Destroy(obj.GetComponent<NormalBullet>());
+                        
 
                     }
                     obj.GetComponent<NormalBullet>().gun(Atk, CurrentEnemy.gameObject);
@@ -91,11 +98,15 @@ public class NormalGun : MonoBehaviour
 	}
     public void UpdateNormal()
     {
-        Atk = Atk + 1;
-        Range = Range + 1;
-        Reload = (float)(Reload * 0.9);
-        Gold = Gold * 2;
         Level++;
+        Atk = Atk + 1;
+        if (Level % 5 == 0)
+        {
+            Range = Range + 1;
+            Reload = (float)(Reload * 0.9);
+        }
+        upgradeGold = upgradeGold + 30;
+        sellGold = sellGold + 10;
     }
 }
 

@@ -16,7 +16,8 @@ public class RobotEnemy : MonoBehaviour
     public float startHealth = 30;
     private float health;
     private int worth = 30;
-    //public Image healthBar;
+    [SerializeField] private Transform barPosition;
+    public Image healthBar;
 
     public float MoveSpeed;
     private WalkPoint walkPoint;
@@ -105,8 +106,7 @@ public class RobotEnemy : MonoBehaviour
     void Die()
     {
         isDead = true;
-
-        PlayerStats.Money += worth;
+        Player.Gold += 10;
 
         //Animation effect = (Animation)Instantiate(deathEffect, transform.position, Quaternion.identity);
         //Destroy(effect, 5f);

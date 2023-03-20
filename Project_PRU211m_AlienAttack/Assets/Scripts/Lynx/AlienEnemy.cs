@@ -17,8 +17,9 @@ public class AlienEnemy : MonoBehaviour
     public float startHealth = 10;
     private float health;
     private int worth = 10;
-    //public Image healthBar;
-
+    
+    [SerializeField] private GameObject healthBarPrefab;
+    [SerializeField] private Transform barPosition;
     public float MoveSpeed;
     private WalkPoint walkPoint;
     private int walkPointIndex;
@@ -105,14 +106,7 @@ public class AlienEnemy : MonoBehaviour
     void Die()
     {
         isDead = true;
-
-        PlayerStats.Money += worth;
-
-        //GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 5f);
-
-        //WaveSpawner.EnemiesAlive--;
-
+        Player.Gold += 10;
         Destroy(gameObject);
     }
 }

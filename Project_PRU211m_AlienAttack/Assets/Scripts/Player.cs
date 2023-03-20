@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public Text GoldText;
 
     private bool isPause = false;
-
+    public static Player player;
 
     public GameOver1 gameover;
     public GameObject normal;
@@ -83,6 +83,22 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    public void TimeIncrease()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+        }
+        else if (Time.timeScale == 2)
+        {
+            Time.timeScale = 4;
+        }
+        else if (Time.timeScale == 4)
+        {
+            Time.timeScale = 1;
+        }
+    }
     public void GameOver()
     {
         gameObject.SetActive(false);
@@ -121,5 +137,12 @@ public class Player : MonoBehaviour
 
 
         }
+
+
+    }
+
+    public void Awake()
+    {
+        player = this;
     }
 }

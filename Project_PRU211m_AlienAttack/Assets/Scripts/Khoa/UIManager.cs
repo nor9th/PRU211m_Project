@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour
         GC.canClick = true;
     }
 
-    public void SellTurret()
-    {
-        Destroy(GC.Turret);
-        TurretInfo.SetActive(false);
-        GC.canClick = true;
-    }
+    //public void SellTurret()
+    //{
+    //    Destroy(GC.Turret);
+    //    TurretInfo.SetActive(false);
+    //    GC.canClick = true;
+    //}
 }

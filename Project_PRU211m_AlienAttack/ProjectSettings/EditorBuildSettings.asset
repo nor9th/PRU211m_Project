@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Cuong/EndGame.unity
-    guid: 47818d5e113995f42b2922a365a82bc6
-  - enabled: 1
     path: Assets/Scenes/Cuong/Start.unity
     guid: fb3de1af2e7c3c44cbee36a463f3b7cf
   - enabled: 1
     path: Assets/Scenes/Game Scene.unity
     guid: fc7a39a20e6de8a4ab9275644bdcce87
+  - enabled: 1
+    path: Assets/Scenes/Cuong/EndGame.unity
+    guid: 47818d5e113995f42b2922a365a82bc6
   m_configObjects: {}
