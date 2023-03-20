@@ -50,8 +50,16 @@ public class ExplosionBullet : MonoBehaviour
 		for (int i = 0; i < Enemy.Length; i++){
 			if (Enemy[i].tag=="Enemy") {
 
+<<<<<<< Updated upstream
 				Enemy[i].GetComponent<HealthBoss>().DealDamage(5f);
 				Destroy(gameObject);
+=======
+				//Enemy[i].GetComponent<HealthBoss>().DealDamage(atk);
+                Enemy[i].GetComponent<AlienEnemy>().DealDamage(atk);
+                //Enemy[i].GetComponent<LizardEnemy>().DealDamage(atk);
+                //Enemy[i].GetComponent<RobotEnemy>().DealDamage(atk);
+                Destroy(gameObject);
+>>>>>>> Stashed changes
 			}
 		}
 
