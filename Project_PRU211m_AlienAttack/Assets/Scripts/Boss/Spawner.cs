@@ -12,14 +12,10 @@ public class Spawner : MonoBehaviour
     private float countdown = 10f;
     private int waveIndex = 0;
 
-    //[SerializeField] private float spawnRate = 1f;
-    //[SerializeField] private GameObject[] bossPrefabs;
-    //[SerializeField] private bool canSpawn = true;
 
     private void Start()
     {
-        //StartCoroutine(BossSpawner());
-        //StartCoroutine(SpawnWave());
+        
     }
 
     int count = 1;
@@ -31,25 +27,12 @@ public class Spawner : MonoBehaviour
             StartCoroutine(SpawnEnemy());
             countdown = timeBetweenWaves * count;
             count++;
+            Player.Wave++;
             return;
         }
         countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
     }
-
-    /*private IEnumerator BossSpawner()
-    {
-        WaitForSeconds wait = new WaitForSeconds(spawnRate);
-
-        while (canSpawn)
-        {
-            yield return wait;
-            int rand = UnityEngine.Random.Range(0, bossPrefabs.Length);
-            GameObject bossToSpawn = bossPrefabs[rand];
-
-            Instantiate(bossToSpawn, transform.position, Quaternion.identity);
-        }
-    }*/
 
     private IEnumerator SpawnEnemy()
     {

@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1430979539724449676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9204465501677863298}
+  m_Layer: 0
+  m_Name: TranformBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9204465501677863298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430979539724449676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5251898555756356566}
+  m_Father: {fileID: 7655276821126365336}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7655276821126365337
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +45,7 @@ GameObject:
   - component: {fileID: 7655276821126365339}
   - component: {fileID: -1339715864369001080}
   - component: {fileID: -3684349754372577948}
+  - component: {fileID: 1566592353906063987}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Enemy
@@ -32,7 +65,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5251898555756356566}
+  - {fileID: 9204465501677863298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,16 +181,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 20
   speed: 0
-  startHealth: 20
-  barPosition: {fileID: 5008689567974210646, guid: 6202835c83ad7d3409a3f393d73dc655, type: 3}
-  healthBar: {fileID: 0}
-  MoveSpeed: 4
+  startHealth: 15
+  MoveSpeed: 5
+--- !u!114 &1566592353906063987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655276821126365337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dab37d655d38a418ce1e2dd02315b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 7483968838422328935}
+  currHealth: 15
+  lizard: {fileID: -3684349754372577948}
 --- !u!1001 &2285314423106383165
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7655276821126365336}
+    m_TransformParent: {fileID: 9204465501677863298}
     m_Modifications:
     - target: {fileID: 6293055579794149098, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
       propertyPath: m_Name
@@ -262,3 +308,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6293055579794149099, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
   m_PrefabInstance: {fileID: 2285314423106383165}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7483968838422328935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8677160351211739994, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
+  m_PrefabInstance: {fileID: 2285314423106383165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

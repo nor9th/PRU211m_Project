@@ -70,7 +70,7 @@ public class HealthBoss : MonoBehaviour
         }
         if (time <= 0)
         {
-            Player.Gold += 10;
+            Player.Gold += 100;
             Destroy(gameObject);
         }
         if (CurrentHealth == 0)

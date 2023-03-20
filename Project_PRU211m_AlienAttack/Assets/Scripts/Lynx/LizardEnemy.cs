@@ -9,21 +9,15 @@ public class LizardEnemy : MonoBehaviour
 
     [HideInInspector]
     public float speed;
-
-    //public GameObject deathEffect;
-    //public Animation deathEffect;
+    float time = 0;
 
     public float startHealth = 15;
     private float health;
     private int worth = 15;
-    [SerializeField] private Transform barPosition;
-    public Image healthBar;
 
     public float MoveSpeed;
     private WalkPoint walkPoint;
     private int walkPointIndex;
-
-    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,23 +30,11 @@ public class LizardEnemy : MonoBehaviour
     void Update()
     {
         Move();
-        //Vector3 dir = target.position - transform.position;
-        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        //if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        //{
-        //    GetNextWaypoint();
-        //    //return;
-        //}
     }
 
     private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
-
-        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
-        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
@@ -62,7 +44,6 @@ public class LizardEnemy : MonoBehaviour
         {
             transform.localScale = new Vector3((float)-1.5, (float)1.5, 0);
         }
-
 
 
         if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
@@ -79,19 +60,6 @@ public class LizardEnemy : MonoBehaviour
         }
     }
 
-    //Update is called once per frame
-    //public void TakeDamage(float amount)
-    //{
-    //    health -= amount;
-
-    //    healthBar.fillAmount = health / startHealth;
-
-    //    if (health <= 0 && !isDead)
-    //    {
-    //        Die();
-    //    }
-    //}
-
     public void DealDamage(float damage)
     {
         startHealth = startHealth - damage;
@@ -102,12 +70,27 @@ public class LizardEnemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
-        isDead = true;
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+        if (time <= 0)
+        {
+            Player.Gold += worth;
+            Destroy(gameObject);
+        }
+        if (startHealth == 0)
+        {
+            //audio.Play();
+            time = 2;
+        }
+    }
 
-        Player.Gold += 10;
-
+    public void MinusHeart()
+    {
+        Player.Heart--;
         Destroy(gameObject);
     }
 }

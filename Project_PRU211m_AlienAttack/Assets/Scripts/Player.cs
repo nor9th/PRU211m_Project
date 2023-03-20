@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float CountTime;
 
     public int WaveInGame;
+    public static int Wave;
     public Text WaveText;
 
     public static int Heart;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     public static int Gold;
     public int GoldInGame;
     public Text GoldText;
+
 
     private bool isPause = false;
     public static Player player;
@@ -47,18 +49,11 @@ public class Player : MonoBehaviour
         TimeInGame += Time.deltaTime;
         CountTime += Time.deltaTime;
 
-        if (CountTime >= 10f)
-        {
-            CountTime = 0f;
-            WaveInGame++;
-
-            //HeartInGame -= 1;
-            for (int i = 0; i < WaveInGame; i++)
-            {
-                GoldInGame += (i * 100);
-            }
+        //if (CountTime >= 10f)
+        //{
+        //    CountTime = 0f;
             
-        }
+        //}
 
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         HeartText.text = string.Format("Heart: " + Heart);

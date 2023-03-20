@@ -11,13 +11,12 @@ public class BossEnemy : MonoBehaviour
     private WalkPoint walkPoint;
 
     private int walkPointIndex;
-    //[SerializeField] private GameObject target;
 
     // Start is called before the first frame update
     void Start()
     {
         walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
-        //walkPoint.walkpoints[ = target.transform;
+
     }
 
     // Update is called once per frame
@@ -29,10 +28,6 @@ public class BossEnemy : MonoBehaviour
     private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
-
-        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
-        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {

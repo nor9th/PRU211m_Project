@@ -9,15 +9,11 @@ public class RobotEnemy : MonoBehaviour
 
     [HideInInspector]
     public float speed;
-
-    //public GameObject deathEffect;
-    //public Animation deathEffect;
+    float time = 0;
 
     public float startHealth = 30;
     private float health;
     private int worth = 30;
-    [SerializeField] private Transform barPosition;
-    public Image healthBar;
 
     public float MoveSpeed;
     private WalkPoint walkPoint;
@@ -37,23 +33,11 @@ public class RobotEnemy : MonoBehaviour
     void Update()
     {
         Move();
-        //Vector3 dir = target.position - transform.position;
-        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        //if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        //{
-        //    GetNextWaypoint();
-        //    //return;
-        //}
     }
 
     private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
-
-        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
-        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
@@ -80,19 +64,6 @@ public class RobotEnemy : MonoBehaviour
         }
     }
 
-    //Update is called once per frame
-    //public void TakeDamage(float amount)
-    //{
-    //    health -= amount;
-
-    //    healthBar.fillAmount = health / startHealth;
-
-    //    if (health <= 0 && !isDead)
-    //    {
-    //        Die();
-    //    }
-    //}
-
     public void DealDamage(float damage)
     {
         startHealth = startHealth - damage;
@@ -103,16 +74,27 @@ public class RobotEnemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
-        isDead = true;
-        Player.Gold += 10;
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+        if (time <= 0)
+        {
+            Player.Gold += worth;
+            Destroy(gameObject);
+        }
+        if (startHealth == 0)
+        {
+            //audio.Play();
+            time = 2;
+        }
+    }
 
-        //Animation effect = (Animation)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 5f);
-
-        //WaveSpawner.EnemiesAlive--;
-
+    public void MinusHeart()
+    {
+        Player.Heart--;
         Destroy(gameObject);
     }
 }

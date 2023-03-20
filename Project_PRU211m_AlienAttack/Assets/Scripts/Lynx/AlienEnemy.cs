@@ -10,21 +10,16 @@ public class AlienEnemy : MonoBehaviour
 
     [HideInInspector]
     public float speed;
-
-    //public GameObject deathEffect;
-    //public Animator deathEffect;
+    float time = 0;
 
     public float startHealth = 10;
-    private float health;
+    public float health;
+
     private int worth = 10;
     
-    [SerializeField] private GameObject healthBarPrefab;
-    [SerializeField] private Transform barPosition;
     public float MoveSpeed;
     private WalkPoint walkPoint;
     private int walkPointIndex;
-
-    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,23 +32,11 @@ public class AlienEnemy : MonoBehaviour
     void Update()
     {
         Move();
-        //Vector3 dir = target.position - transform.position;
-        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        //if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        //{
-        //    GetNextWaypoint();
-        //    //return;
-        //}
     }
 
     private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, walkPoint.walkpoints[walkPointIndex].position, MoveSpeed * Time.deltaTime);
-
-        //Vector3 dir = walkPoint.walkpoints[walkPointIndex].position - transform.position;
-        /*float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
 
         if (transform.position.x < walkPoint.walkpoints[walkPointIndex].position.x)
         {
@@ -80,19 +63,6 @@ public class AlienEnemy : MonoBehaviour
         }
     }
 
-    //Update is called once per frame
-    //public void TakeDamage(float amount)
-    //{
-    //    health -= amount;
-
-    //    healthBar.fillAmount = health / startHealth;
-
-    //    if (health <= 0 && !isDead)
-    //    {
-    //        Die();
-    //    }
-    //}
-
     public void DealDamage(float damage)
     {
         startHealth = startHealth - damage;
@@ -103,10 +73,27 @@ public class AlienEnemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
-        isDead = true;
-        Player.Gold += 10;
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+        if (time <= 0)
+        {
+            Player.Gold += worth;
+            Destroy(gameObject);
+        }
+        if (startHealth == 0)
+        {
+            //audio.Play();
+            time = 2;
+        }
+    }
+
+    public void MinusHeart()
+    {
+        Player.Heart--;
         Destroy(gameObject);
     }
 }

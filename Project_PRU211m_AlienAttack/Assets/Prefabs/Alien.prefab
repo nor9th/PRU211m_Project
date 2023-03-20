@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3875137554003869896}
   - component: {fileID: 5659065646092653892}
   - component: {fileID: 925538696067513029}
+  - component: {fileID: 4622208094991494831}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -148,10 +149,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 10
   speed: 0
-  startHealth: 30
-  healthBar: {fileID: 0}
-  barPosition: {fileID: 5008689567974210646, guid: 6202835c83ad7d3409a3f393d73dc655, type: 3}
+  startHealth: 10
+  health: 0
+  healthBarPrefab: {fileID: 615064048976983439, guid: 6202835c83ad7d3409a3f393d73dc655, type: 3}
   MoveSpeed: 3
+--- !u!114 &4622208094991494831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875137554003869897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100f430f037225747a1c97f24efe79b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 3404189054501642034}
+  currHealth: 10
+  alien: {fileID: 925538696067513029}
 --- !u!1 &4197810479879418715
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,14 +248,6 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6293055579794149099, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293055579794149099, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293055579794149099, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -289,24 +297,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
---- !u!1 &900205186 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6293055579794149098, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}
-  m_PrefabInstance: {fileID: 6293055579044938856}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8945663417448911497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900205186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 377fabffba4c95d48b952f3001b9675f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fillAmountImage: {fileID: 3404189054501642034}
 --- !u!224 &900205187 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6293055579794149099, guid: e2cfe1d3f9dd25d468d7cc3f6b2e5798, type: 3}

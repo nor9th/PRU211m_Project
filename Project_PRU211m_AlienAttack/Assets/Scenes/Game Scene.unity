@@ -1177,6 +1177,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[1].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[2].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[3].rate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[4].rate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[5].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[6].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[0].enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[0].enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 8855303797783834132, guid: fd32cf7eb3e7b324eb0d3ff55ec21b93, type: 3}
+    - target: {fileID: 8542301424932442163, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
+      propertyPath: waves.Array.data[0].enemy.Array.data[1]
+      value: 
+      objectReference: {fileID: 3875137554003869897, guid: e42efab94b4354a4eaacf06b567e6465, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add4c77a55a6864438225a49f535a1b0, type: 3}
 --- !u!1 &236775849
