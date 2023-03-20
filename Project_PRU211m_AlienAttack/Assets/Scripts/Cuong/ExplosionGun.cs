@@ -6,13 +6,17 @@ public class ExplosionGun : MonoBehaviour
 {
     // Start is called before the first frame update
 
+
     public int Atk;
     public int Range;
     public int Gold;
 	public int Level;
     public float Reload;
+    public int upgradeGold;
+    public int sellGold;
 
-	public GameObject Explosion_bullet;
+
+    public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;
 	public UnityEngine.Transform Spot;
 	public float counter = 0;
@@ -26,7 +30,9 @@ public class ExplosionGun : MonoBehaviour
 		Reload = 2;
 		Gold = 30;
 		Level = 1;
-	}
+        upgradeGold = 50;
+        sellGold = 30;
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -78,6 +84,7 @@ public class ExplosionGun : MonoBehaviour
 		Gizmos.DrawSphere(transform.position, Range);
 	}
 
+
     public void UpdateExplo()
     {
         Atk = Atk + 2;
@@ -86,4 +93,20 @@ public class ExplosionGun : MonoBehaviour
         Gold = Gold * 2;
         Level++;
     }
+
+
+    public void UpdateExplo()
+    {
+        Level++;
+        Atk = Atk + 2;
+        if(Level%5==0 ) 
+        {
+            Range = Range + 1;
+            Reload = (float)(Reload * 0.9);
+        }
+        upgradeGold = upgradeGold + 50;
+        sellGold = sellGold + 30;
+        
+    }
+
 }
