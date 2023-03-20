@@ -13,13 +13,7 @@ public class NormalGun : MonoBehaviour
     public int Range;
     public int Gold;
     public int Level;
-<<<<<<< Updated upstream
     public int Reload;
-=======
-    public float Reload;
-    public int upgradeGold;
-    public int sellGold;
->>>>>>> Stashed changes
 
     public GameObject bullet;
     public GameObject Normal_gun; 
@@ -34,9 +28,7 @@ public class NormalGun : MonoBehaviour
         Range = 10;
         Reload = 2;
         Gold = 30; 
-        Level= 1;
-        upgradeGold = 30;
-        sellGold = 20;
+        Level= 1;   
     }
 
     // Update is called once per frame
@@ -55,7 +47,10 @@ public class NormalGun : MonoBehaviour
             {
                 if (hit[i].tag == "Enemy" && hit.Length >= 1)
                 {
+
                     CurrentEnemy = hit[i].gameObject;
+
+                  
                 }
             }
         }
@@ -88,20 +83,5 @@ public class NormalGun : MonoBehaviour
 		Gizmos.color = Color.white;
         Gizmos.DrawSphere(transform.position,Range); 
 	}
-<<<<<<< Updated upstream
-=======
-    public void UpdateNormal()
-    {
-        Level++;
-        Atk = Atk + 1;
-        if (Level % 5 == 0)
-        {
-            Range = Range + 1;
-            Reload = (float)(Reload * 0.9);
-        }
-        upgradeGold = upgradeGold + 30;
-        sellGold = sellGold + 10;
-    }
->>>>>>> Stashed changes
 }
 

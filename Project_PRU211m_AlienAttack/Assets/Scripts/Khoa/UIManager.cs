@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public GameObject TurretShop;
     public GameObject TurretInfo;
     public GameController GC;
-    public GameObject upgradeButton;
 
     public void Awake()
     {
@@ -29,10 +28,10 @@ public class UIManager : MonoBehaviour
         GC.canClick = true;
     }
 
-    //public void SellTurret()
-    //{
-    //    Destroy(GC.Turret);
-    //    TurretInfo.SetActive(false);
-    //    GC.canClick = true;
-    //}
+    public void SellTurret()
+    {
+        Destroy(GC.Turret);
+        TurretInfo.SetActive(false);
+        GC.canClick = true;
+    }
 }

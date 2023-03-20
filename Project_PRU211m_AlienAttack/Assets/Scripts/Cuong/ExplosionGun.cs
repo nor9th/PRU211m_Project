@@ -4,25 +4,15 @@ using UnityEngine;
 
 public class ExplosionGun : MonoBehaviour
 {
-    // Start is called before the first frame update
+	// Start is called before the first frame update
 
-<<<<<<< Updated upstream
 	public int Atk;
     public int Range;
     public int Gold;
     public int Level;
     public int Reload;
-=======
-    public int Atk;
-    public int Range;
-    public int Gold;
-	public int Level;
-    public float Reload;
-    public int upgradeGold;
-    public int sellGold;
->>>>>>> Stashed changes
 
-    public GameObject Explosion_bullet;
+	public GameObject Explosion_bullet;
 	public GameObject Explosion_gun;
 	public UnityEngine.Transform Spot;
 	public float counter = 0;
@@ -36,9 +26,7 @@ public class ExplosionGun : MonoBehaviour
 		Reload = 2;
 		Gold = 30;
 		Level = 1;
-        upgradeGold = 50;
-        sellGold = 30;
-    }
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -83,21 +71,4 @@ public class ExplosionGun : MonoBehaviour
 		Gizmos.color = Color.white;
 		Gizmos.DrawSphere(transform.position, Range);
 	}
-<<<<<<< Updated upstream
-=======
-
-    public void UpdateExplo()
-    {
-        Level++;
-        Atk = Atk + 2;
-        if(Level%5==0 ) 
-        {
-            Range = Range + 1;
-            Reload = (float)(Reload * 0.9);
-        }
-        upgradeGold = upgradeGold + 50;
-        sellGold = sellGold + 30;
-        
-    }
->>>>>>> Stashed changes
 }

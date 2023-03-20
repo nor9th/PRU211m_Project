@@ -22,15 +22,6 @@ public class Player : MonoBehaviour
     private bool isPause = false;
 
 
-<<<<<<< Updated upstream
-=======
-    public GameOver1 gameover;
-    public GameObject normal;
-    public GameObject explo;
-    public GameController GC;
-    public Scoro a;
-    public static Player player;
->>>>>>> Stashed changes
     void Start()
     {
         TimeInGame = 0f;
@@ -68,48 +59,6 @@ public class Player : MonoBehaviour
             isPause = true;
             TimeInGame = Time.deltaTime;
             TimeInGame = Time.timeScale;
-<<<<<<< Updated upstream
-=======
-
         }
-    }
-    
-    public void GameOver()
-    {
-        gameObject.SetActive(false);
-        gameover.setup();
-    }
-
-    public void Load()
-    {
-
-        for (int i = 0  ;i <a.NumTuret; i++)
-        {
-            Spawn(i);
-            Debug.Log(a.NumTuret+"abc");
-         }
-
-}
-
-
-    private void Spawn(int s)
-    {
-        float x = PlayerPrefs.GetFloat("X"+s);
-        float y = PlayerPrefs.GetFloat("Y"+s);
-
-        Vector2 pos = new Vector2(x, y);
-       //  int Level = PlayerPrefs.GetInt("Level" + s);
-         int type =  PlayerPrefs.GetInt("Type" + s);
-        if (type == 0)
-        {
-          GameObject sq =  Instantiate(normal, pos, Quaternion.identity); 
-         //   sq.GetComponent<NormalGun>().Level = Level;
->>>>>>> Stashed changes
-        }
-    }
-
-    public void Awake()
-    {
-        player = this;
     }
 }
