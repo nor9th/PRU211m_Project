@@ -28,14 +28,11 @@ public class Player : MonoBehaviour
     private bool isPause = false;
 
 
-
     public GameOver1 gameover;
     public GameObject normal;
     public GameObject explo;
     public GameController GC;
     public Scoro a;
-    public static Player player;
-
     void Start()
     {
         Heart = HeartInGame;
@@ -84,7 +81,6 @@ public class Player : MonoBehaviour
             TimeInGame = Time.deltaTime;
             TimeInGame = Time.timeScale;
 
-
         }
     }
     public void GameOver()
@@ -124,46 +120,6 @@ public class Player : MonoBehaviour
            // sq.GetComponent<ExplosionGun>().Level = Level;
 
 
-
         }
-    }
-    
-    public void GameOver()
-    {
-        gameObject.SetActive(false);
-        gameover.setup();
-    }
-
-    public void Load()
-    {
-
-        for (int i = 0  ;i <a.NumTuret; i++)
-        {
-            Spawn(i);
-            Debug.Log(a.NumTuret+"abc");
-         }
-
-}
-
-
-    private void Spawn(int s)
-    {
-        float x = PlayerPrefs.GetFloat("X"+s);
-        float y = PlayerPrefs.GetFloat("Y"+s);
-
-        Vector2 pos = new Vector2(x, y);
-       //  int Level = PlayerPrefs.GetInt("Level" + s);
-         int type =  PlayerPrefs.GetInt("Type" + s);
-        if (type == 0)
-        {
-          GameObject sq =  Instantiate(normal, pos, Quaternion.identity); 
-         //   sq.GetComponent<NormalGun>().Level = Level;
-
-        }
-    }
-
-    public void Awake()
-    {
-        player = this;
     }
 }

@@ -13,8 +13,6 @@ public class TurretInfo : MonoBehaviour
     public Text Range;
     public Text Reload;
     public Text Gold;
-    public Text UpgradeGold;
-    public Text SellGold;
     void Start()
     {
         GC = FindObjectOfType<GameController>();
@@ -25,7 +23,7 @@ public class TurretInfo : MonoBehaviour
         
     }
 
-    public void setInfoText(string txt,string atk,string reload, string range, string gold, string upgradeGold, string sellGold)
+    public void setInfoText(string txt,string atk,string reload, string range, string gold)
     {
         if (Level != null)
         {
@@ -46,14 +44,6 @@ public class TurretInfo : MonoBehaviour
         if (Gold != null)
         {
             Gold.text = gold;
-        }
-        if(upgradeGold != null)
-        {
-            UpgradeGold.text = upgradeGold;
-        }
-        if (sellGold != null)
-        {
-            SellGold.text = sellGold;
         }
 
     }
