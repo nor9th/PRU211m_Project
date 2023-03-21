@@ -6,13 +6,13 @@ public class ExplosionGun : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int Atk;
-    public int Range;
-    public int Gold;
-	public int Level;
-    public float Reload;
-    public int upgradeGold;
-    public int sellGold;
+    public int Atk = 5;
+    public int Range = 10;
+    public int Gold = 100;
+    public int Level = 1;
+    public float Reload = 2;
+    public int upgradeGold = 100;
+    public int sellGold = 30;
     public AudioSource aus;
 
     public GameObject Explosion_bullet;
@@ -24,13 +24,13 @@ public class ExplosionGun : MonoBehaviour
 
 	void Start()
 	{
-		Atk = 5;
-		Range = 10;
-		Reload = 2;
-		Gold = 30;
-		Level = 1;
-        upgradeGold = 50;
-        sellGold = 30;
+		//Atk = 5;
+		//Range = 10;
+		//Reload = 2;
+		//Gold = 30;
+		//Level = 1;
+  //      upgradeGold = 50;
+  //      sellGold = 30;
     }
 
 	// Update is called once per frame
@@ -95,5 +95,15 @@ public class ExplosionGun : MonoBehaviour
         }
         upgradeGold = upgradeGold + 50;
         sellGold = sellGold + 30;
+    }
+    public void isNew()
+    {
+        Atk = 5;
+        Range = 10;
+        Gold = 100;
+        Level = 1;
+        Reload = 2;
+        upgradeGold = 100;
+        sellGold = 30;
     }
 }

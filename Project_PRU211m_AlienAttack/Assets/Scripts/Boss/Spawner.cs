@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
         {
             int rand = UnityEngine.Random.Range(0, wave.enemy.Length);
             GameObject bossToSpawn = wave.enemy[rand];
-
+            
             Instantiate(bossToSpawn, transform.position, Quaternion.identity);
 
             yield return new WaitForSeconds(wave.rate);

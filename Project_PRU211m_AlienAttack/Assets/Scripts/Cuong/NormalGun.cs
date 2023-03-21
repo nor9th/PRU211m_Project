@@ -9,13 +9,13 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class NormalGun : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int Atk;
-    public int Range;
-    public int Gold;
-    public int Level;
-    public float Reload;
-    public int upgradeGold;
-    public int sellGold;
+    public int Atk = 2;
+    public int Range = 10;
+    public int Gold = 50;
+    public int Level = 1;
+    public float Reload = 2;
+    public int upgradeGold = 40;
+    public int sellGold = 20;
     public AudioSource aus;
 
     public GameObject bullet;
@@ -27,13 +27,13 @@ public class NormalGun : MonoBehaviour
 
 	void Start()
     {
-        Atk = 5;
-        Range = 10;
-        Reload = 2;
-        Gold = 30; 
-        Level= 1;
-        upgradeGold = 30;
-        sellGold = 20;
+        //Atk = 5;
+        //Range = 10;
+        //Reload = 2;
+        //Gold = 30; 
+        //Level= 1;
+        //upgradeGold = 30;
+        //sellGold = 20;
     }
 
     // Update is called once per frame
@@ -107,6 +107,17 @@ public class NormalGun : MonoBehaviour
         }
         upgradeGold = upgradeGold + 30;
         sellGold = sellGold + 10;
+    }
+
+    public void isNew()
+    {
+        Atk = 2;
+        Range = 10;
+        Gold = 50;
+        Level = 1;
+        Reload = 2;
+        upgradeGold = 70;
+        sellGold = 20;
     }
 }
 

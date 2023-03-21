@@ -141,6 +141,7 @@ public class GameController : MonoBehaviour
             NormalGun normalGun = Turret.GetComponent<NormalGun>();
             Player.Gold = Player.Gold + normalGun.sellGold;
             Destroy(Turret);
+            ListTurret.Remove(Turret);
             UIManager.UI.TurretInfo.SetActive(false);
             canClick = true;
         }
@@ -149,6 +150,7 @@ public class GameController : MonoBehaviour
             ExplosionGun explosionGun = Turret.GetComponent<ExplosionGun>();
             Player.Gold = Player.Gold + explosionGun.sellGold;
             Destroy(Turret);
+            ListTurret.Remove(Turret);
             UIManager.UI.TurretInfo.SetActive(false);
             canClick = true;
         }

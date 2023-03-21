@@ -33,6 +33,14 @@ public class TurretCard : MonoBehaviour
         {
             UIManager.UI.CloseTurretShopPanel();
             GameObject a = Instantiate(TurretLoaded.TurretPrefabs, GC.turretPoint, Quaternion.identity);
+            if (a.CompareTag("Normal"))
+            {
+                a.GetComponent<NormalGun>().isNew();
+            }
+            if (a.CompareTag("Explosion"))
+            {
+                a.GetComponent<ExplosionGun>().isNew();
+            }
             GC.ListTurret.Add(a);
             GC.canClick = true;
             Player.Gold = Player.Gold - int.Parse(turretCost.text);

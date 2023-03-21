@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         HeartText.text = string.Format("Heart: " + Heart);
         GoldText.text = string.Format("Gold: " + Gold);
-        WaveText.text = string.Format("Wave: " + WaveInGame);
+        WaveText.text = string.Format("Wave: " + Wave);
         TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
 
 
@@ -113,22 +113,47 @@ public class Player : MonoBehaviour
 
     private void Spawn(int s)
     {
-        float x = PlayerPrefs.GetFloat("X"+s);
-        float y = PlayerPrefs.GetFloat("Y"+s);
-
+        float x = PlayerPrefs.GetFloat("X" + s);
+        float y = PlayerPrefs.GetFloat("Y" + s);
+        int Level = PlayerPrefs.GetInt("Level" + s);
+        Debug.Log(Level);
+        int Atk = PlayerPrefs.GetInt("Atk" + s);
+        int Range = PlayerPrefs.GetInt("Range" + s);
+        int Gold = PlayerPrefs.GetInt("Gold" + s);
+        float Reload = PlayerPrefs.GetFloat("Reload" + s);
+        int upgradeGold = PlayerPrefs.GetInt("upgradeGold" + s);
+        int sellGold = PlayerPrefs.GetInt("sellGold" + s);
         Vector2 pos = new Vector2(x, y);
-       //  int Level = PlayerPrefs.GetInt("Level" + s);
-         int type =  PlayerPrefs.GetInt("Type" + s);
+        //  int Level = PlayerPrefs.GetInt("Level" + s);
+        int type = PlayerPrefs.GetInt("Type" + s);
         if (type == 0)
         {
-          GameObject sq =  Instantiate(normal, pos, Quaternion.identity); 
-         //   sq.GetComponent<NormalGun>().Level = Level;
-        }
-		if (type == 1)
+            normal.GetComponent<NormalGun>().Level = Level;
+            normal.GetComponent<NormalGun>().Atk = Atk;
+            normal.GetComponent<NormalGun>().Range = Range;
+            normal.GetComponent<NormalGun>().Gold = Gold;
+            normal.GetComponent<NormalGun>().Reload = Reload;
+            normal.GetComponent<NormalGun>().upgradeGold = upgradeGold;
+            normal.GetComponent<NormalGun>().sellGold = sellGold;
+            GameObject sq = Instantiate(normal, pos, Quaternion.identity);
+            GC.ListTurret.Add(sq);
 
-		{
-			GameObject sq = Instantiate(explo, pos, Quaternion.identity);
-           // sq.GetComponent<ExplosionGun>().Level = Level;
+
+
+
+        }
+        if (type == 1)
+
+        {
+            explo.GetComponent<ExplosionGun>().Level = Level;
+            explo.GetComponent<ExplosionGun>().Atk = Atk;
+            explo.GetComponent<ExplosionGun>().Range = Range;
+            explo.GetComponent<ExplosionGun>().Gold = Gold;
+            explo.GetComponent<ExplosionGun>().Reload = Reload;
+            explo.GetComponent<ExplosionGun>().upgradeGold = upgradeGold;
+            explo.GetComponent<ExplosionGun>().sellGold = sellGold;
+            GameObject sq = Instantiate(explo, pos, Quaternion.identity);
+            GC.ListTurret.Add(sq);
 
 
         }
