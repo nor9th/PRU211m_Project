@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     {
         Heart = HeartInGame;
         Gold = GoldInGame;
+        Wave= WaveInGame;
         GC = FindObjectOfType<GameController>();
         TimeInGame = 0f;
         CountTime = 0f;
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
         HeartText.text = string.Format("Heart: " + Heart);
         GoldText.text = string.Format("Gold: " + Gold);
         WaveText.text = string.Format("Wave: " + Wave);
-        TimeText.text = string.Format("Time: {0:00.00}", TimeInGame);
+        TimeText.text = string.Format("Time: {00:00.00}", TimeInGame);
 
 
         if (Heart <= 0)
@@ -97,6 +98,7 @@ public class Player : MonoBehaviour
     public void GameOver()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 0;
         gameover.setup();
     }
 
