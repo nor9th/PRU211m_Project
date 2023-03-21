@@ -27,6 +27,11 @@ public class Spawner : MonoBehaviour
             StartCoroutine(SpawnEnemy());
             countdown = timeBetweenWaves * count;
             count++;
+            if(countdown >= 50f)
+            {
+                countdown = 10f;
+                count = 1;
+            }
             Player.Wave++;
             return;
         }

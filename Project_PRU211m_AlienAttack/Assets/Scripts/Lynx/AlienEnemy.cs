@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +16,7 @@ public class AlienEnemy : MonoBehaviour
     public float health;
 
     private int worth = 10;
-    
+    private bool isLine = true;
     public float MoveSpeed;
     private WalkPoint walkPoint;
     private int walkPointIndex;
@@ -24,9 +24,13 @@ public class AlienEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         health = startHealth;
         speed = startSpeed;
-        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        walkPoint = GameObject.Find("WalkPointLine1").GetComponent<WalkPoint>();
+        Debug.Log(walkPoint.transform.position.x + ", " + walkPoint.transform.position.y + "WalkPointLine1");
+        //walkPoint = GameObject.Find("WalkPointLine2").GetComponent<WalkPoint>();
+        //Debug.Log(walkPoint.transform.position.x + ", " + walkPoint.transform.position.y + "WalkPointLine2");
     }
 
     void Update()

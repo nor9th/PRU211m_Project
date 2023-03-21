@@ -13,8 +13,8 @@ public class HealthBoss : MonoBehaviour
 
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Transform barPosition;
-    [SerializeField] private float initialHealth = 10f;
-    [SerializeField] private float maxHealth = 10f;
+    private float initialHealth = 50f;
+    private float maxHealth = 50f;
 
     public AudioSource audio;
     float time = 0;
@@ -55,6 +55,8 @@ public class HealthBoss : MonoBehaviour
             CurrentHealth = 0;
             audio.Play();
             Die();
+            initialHealth += 10f;
+            maxHealth += 10f;
         }
         else
         {

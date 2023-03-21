@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class BossEnemy : MonoBehaviour
 {
-    public float MoveSpeed;
+    private float MoveSpeed;
     private WalkPoint walkPoint;
 
     private int walkPointIndex;
@@ -15,7 +15,8 @@ public class BossEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        //walkPoint = GameObject.FindGameObjectWithTag("walkpoint").GetComponent<WalkPoint>();
+        walkPoint = GetComponent<WalkPoint>();
 
     }
 
@@ -39,7 +40,6 @@ public class BossEnemy : MonoBehaviour
         }
 
 
-
         if (Vector2.Distance(transform.position, walkPoint.walkpoints[walkPointIndex].position) < 0.1f)
         {
             if (walkPointIndex < walkPoint.walkpoints.Length - 1)
@@ -50,6 +50,7 @@ public class BossEnemy : MonoBehaviour
             {
 
                 MinusHeart();
+                MoveSpeed++;
                 return;
             }
         }
